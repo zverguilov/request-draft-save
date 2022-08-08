@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="io_set_item">
+    <io_set_item action="DELETE">
+        <order>100</order>
+        <sc_cat_item display_value="Draft Save PoC">974ed57a07201110d44bf16c7c1ed0cc</sc_cat_item>
+        <sys_class_name>io_set_item</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-26 09:59:16</sys_created_on>
+        <sys_id>1ea4432307f05110d44bf16c7c1ed035</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>VSet 01.Draft Save PoC</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>io_set_item_1ea4432307f05110d44bf16c7c1ed035</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-07-26 09:59:16</sys_updated_on>
+        <variable_set display_value="VSet 01">3204cbef07b05110d44bf16c7c1ed020</variable_set>
+    </io_set_item>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</application>
+        <file_path/>
+        <instance_id>1d64aec2db06f3082f68c597059619f0</instance_id>
+        <instance_name>dev87737</instance_name>
+        <name>io_set_item_1ea4432307f05110d44bf16c7c1ed035</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="io_set_item"><io_set_item action="INSERT_OR_UPDATE"><order>100</order><sc_cat_item display_value="Draft Save PoC">974ed57a07201110d44bf16c7c1ed0cc</sc_cat_item><sys_class_name>io_set_item</sys_class_name><sys_created_by>zdravko.verguilov</sys_created_by><sys_created_on>2022-07-26 09:59:16</sys_created_on><sys_id>1ea4432307f05110d44bf16c7c1ed035</sys_id><sys_mod_count>1</sys_mod_count><sys_name>VSet 01.Draft Save PoC</sys_name><sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package><sys_policy/><sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope><sys_update_name>io_set_item_1ea4432307f05110d44bf16c7c1ed035</sys_update_name><sys_updated_by>zdravko.verguilov</sys_updated_by><sys_updated_on>2022-07-26 09:59:16</sys_updated_on><variable_set display_value="VSet 01">3204cbef07b05110d44bf16c7c1ed020</variable_set></io_set_item></record_update>]]></payload>
+        <payload_hash>-800625018</payload_hash>
+        <record_name>VSet 01.Draft Save PoC</record_name>
+        <reverted_from/>
+        <source>fe1bdf0b07e01110d44bf16c7c1ed069</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-26 09:59:16</sys_created_on>
+        <sys_id>9ea4432307f05110d44bf16c7c1ed03d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18239f24b660000001</sys_recorded_at>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-07-26 09:59:16</sys_updated_on>
+        <type>Catalog Variable Set</type>
+        <update_guid>96a44323def051103491ba6188a6a83d</update_guid>
+        <update_guid_history>96a44323def051103491ba6188a6a83d:-800625018</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="VSet 01.Draft Save PoC">33a4ccd2078d5910d44bf16c7c1ed0bf</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-08-03 09:03:48</sys_created_on>
+        <sys_db_object display_value="" name="io_set_item">io_set_item</sys_db_object>
+        <sys_id>aa1ccce45df54c3b884c937dbb55eb69</sys_id>
+        <sys_metadata>1ea4432307f05110d44bf16c7c1ed035</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>VSet 01.Draft Save PoC</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_scope_delete display_value="">501e30fe705f4dd6a4ecf3b00ec1ad64</sys_scope_delete>
+        <sys_update_name>io_set_item_1ea4432307f05110d44bf16c7c1ed035</sys_update_name>
+        <sys_update_version display_value="io_set_item_1ea4432307f05110d44bf16c7c1ed035">9ea4432307f05110d44bf16c7c1ed03d</sys_update_version>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-08-03 09:03:48</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

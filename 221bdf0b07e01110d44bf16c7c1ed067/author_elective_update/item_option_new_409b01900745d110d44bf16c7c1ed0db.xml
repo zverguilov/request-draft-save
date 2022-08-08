@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="item_option_new">
+    <item_option_new action="DELETE">
+        <active>false</active>
+        <attributes/>
+        <cat_item display_value="Draft Save PoC">974ed57a07201110d44bf16c7c1ed0cc</cat_item>
+        <category/>
+        <choice_direction>down</choice_direction>
+        <choice_field/>
+        <choice_table/>
+        <create_roles/>
+        <default_html_value/>
+        <default_value/>
+        <delete_roles/>
+        <delivery_plan/>
+        <description/>
+        <display_title>false</display_title>
+        <do_not_select_first>false</do_not_select_first>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <enable_also_request_for>false</enable_also_request_for>
+        <example_text/>
+        <field/>
+        <global>false</global>
+        <help_tag>More information</help_tag>
+        <help_text/>
+        <hidden>false</hidden>
+        <include_none>false</include_none>
+        <instructions/>
+        <layout>normal</layout>
+        <list_table/>
+        <lookup_label/>
+        <lookup_price/>
+        <lookup_table/>
+        <lookup_unique>false</lookup_unique>
+        <lookup_value/>
+        <macro/>
+        <macroponent/>
+        <mandatory>false</mandatory>
+        <map_to_field>false</map_to_field>
+        <mask_use_confirmation>false</mask_use_confirmation>
+        <mask_use_encryption>false</mask_use_encryption>
+        <name>rp_draft_save</name>
+        <order>5000</order>
+        <price_if_checked>0</price_if_checked>
+        <pricing_implications>false</pricing_implications>
+        <published_ref/>
+        <question_text>RP Draft Save</question_text>
+        <read_only>false</read_only>
+        <read_roles/>
+        <read_script/>
+        <rec_lookup_price/>
+        <rec_price_if_checked>0</rec_price_if_checked>
+        <record/>
+        <record_producer_table>x_463716_draft_s_0_demo_record</record_producer_table>
+        <reference/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <rich_text/>
+        <roles_to_use_also_request_for/>
+        <save_script/>
+        <scale_max>5</scale_max>
+        <scale_min>0</scale_min>
+        <show_help>false</show_help>
+        <show_help_on_load>false</show_help_on_load>
+        <sp_widget display_value="RP Draft Save">84cd4e1b07b01110d44bf16c7c1ed050</sp_widget>
+        <summary_macro/>
+        <sys_class_name>item_option_new</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-28 09:05:37</sys_created_on>
+        <sys_id>409b01900745d110d44bf16c7c1ed0db</sys_id>
+        <sys_mod_count>35</sys_mod_count>
+        <sys_name>RP Draft Save</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>item_option_new_409b01900745d110d44bf16c7c1ed0db</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-07-29 13:06:17</sys_updated_on>
+        <table/>
+        <tooltip/>
+        <type>14</type>
+        <ui_page/>
+        <unique>false</unique>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <validate_regex/>
+        <variable_name/>
+        <variable_set/>
+        <variable_width/>
+        <visibility>1</visibility>
+        <visible_bundle>true</visible_bundle>
+        <visible_guide>true</visible_guide>
+        <visible_standalone>true</visible_standalone>
+        <visible_summary>true</visible_summary>
+        <write_roles/>
+    </item_option_new>
+    <sys_translated_text action="DELETE" query="documentkey=409b01900745d110d44bf16c7c1ed0db"/>
+    <fx_price action="DELETE" query="id=409b01900745d110d44bf16c7c1ed0db"/>
+    <fx_price action="DELETE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>price_if_checked</field>
+        <id>409b01900745d110d44bf16c7c1ed0db</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-28 09:05:38</sys_created_on>
+        <sys_id>c09b01900745d110d44bf16c7c1ed0e0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-07-28 09:05:38</sys_updated_on>
+        <table>item_option_new</table>
+        <type>calculated</type>
+    </fx_price>
+    <fx_price action="DELETE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>rec_price_if_checked</field>
+        <id>409b01900745d110d44bf16c7c1ed0db</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-28 09:05:38</sys_created_on>
+        <sys_id>449b01900745d110d44bf16c7c1ed0df</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-07-28 09:05:38</sys_updated_on>
+        <table>item_option_new</table>
+        <type>calculated</type>
+    </fx_price>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</application>
+        <file_path/>
+        <instance_id>1d64aec2db06f3082f68c597059619f0</instance_id>
+        <instance_name>dev87737</instance_name>
+        <name>item_option_new_409b01900745d110d44bf16c7c1ed0db</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="item_option_new"><item_option_new action="INSERT_OR_UPDATE"><active>false</active><attributes/><cat_item display_value="Draft Save PoC">974ed57a07201110d44bf16c7c1ed0cc</cat_item><category/><choice_direction>down</choice_direction><choice_field/><choice_table/><create_roles/><default_html_value/><default_value/><delete_roles/><delivery_plan/><description/><display_title>false</display_title><do_not_select_first>false</do_not_select_first><dynamic_default_value/><dynamic_ref_qual/><enable_also_request_for>false</enable_also_request_for><example_text/><field/><global>false</global><help_tag>More information</help_tag><help_text/><hidden>false</hidden><include_none>false</include_none><instructions/><layout>normal</layout><list_table/><lookup_label/><lookup_price/><lookup_table/><lookup_unique>false</lookup_unique><lookup_value/><macro/><macroponent/><mandatory>false</mandatory><map_to_field>false</map_to_field><mask_use_confirmation>false</mask_use_confirmation><mask_use_encryption>false</mask_use_encryption><name>rp_draft_save</name><order>5000</order><price_if_checked>0</price_if_checked><pricing_implications>false</pricing_implications><published_ref/><question_text>RP Draft Save</question_text><read_only>false</read_only><read_roles/><read_script/><rec_lookup_price/><rec_price_if_checked>0</rec_price_if_checked><record/><record_producer_table>x_463716_draft_s_0_demo_record</record_producer_table><reference/><reference_qual/><reference_qual_condition/><rich_text/><roles_to_use_also_request_for/><save_script/><scale_max>5</scale_max><scale_min>0</scale_min><show_help>false</show_help><show_help_on_load>false</show_help_on_load><sp_widget display_value="RP Draft Save">84cd4e1b07b01110d44bf16c7c1ed050</sp_widget><summary_macro/><sys_class_name>item_option_new</sys_class_name><sys_created_by>zdravko.verguilov</sys_created_by><sys_created_on>2022-07-28 09:05:37</sys_created_on><sys_id>409b01900745d110d44bf16c7c1ed0db</sys_id><sys_mod_count>35</sys_mod_count><sys_name>RP Draft Save</sys_name><sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package><sys_policy/><sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope><sys_update_name>item_option_new_409b01900745d110d44bf16c7c1ed0db</sys_update_name><sys_updated_by>zdravko.verguilov</sys_updated_by><sys_updated_on>2022-07-29 13:06:17</sys_updated_on><table/><tooltip/><type>14</type><ui_page/><unique>false</unique><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><validate_regex/><variable_name/><variable_set/><variable_width/><visibility>1</visibility><visible_bundle>true</visible_bundle><visible_guide>true</visible_guide><visible_standalone>true</visible_standalone><visible_summary>true</visible_summary><write_roles/></item_option_new><sys_translated_text action="delete_multiple" query="documentkey=409b01900745d110d44bf16c7c1ed0db"/><fx_price action="delete_multiple" query="id=409b01900745d110d44bf16c7c1ed0db"/><fx_price action="INSERT_OR_UPDATE"><amount>0</amount><currency display_value="USD">USD</currency><field>price_if_checked</field><id>409b01900745d110d44bf16c7c1ed0db</id><parent/><reference_amount>0</reference_amount><reference_currency display_value="USD">USD</reference_currency><sys_created_by>zdravko.verguilov</sys_created_by><sys_created_on>2022-07-28 09:05:38</sys_created_on><sys_id>c09b01900745d110d44bf16c7c1ed0e0</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>zdravko.verguilov</sys_updated_by><sys_updated_on>2022-07-28 09:05:38</sys_updated_on><table>item_option_new</table><type>calculated</type></fx_price><fx_price action="INSERT_OR_UPDATE"><amount>0</amount><currency display_value="USD">USD</currency><field>rec_price_if_checked</field><id>409b01900745d110d44bf16c7c1ed0db</id><parent/><reference_amount>0</reference_amount><reference_currency display_value="USD">USD</reference_currency><sys_created_by>zdravko.verguilov</sys_created_by><sys_created_on>2022-07-28 09:05:38</sys_created_on><sys_id>449b01900745d110d44bf16c7c1ed0df</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>zdravko.verguilov</sys_updated_by><sys_updated_on>2022-07-28 09:05:38</sys_updated_on><table>item_option_new</table><type>calculated</type></fx_price></record_update>]]></payload>
+        <payload_hash>751125695</payload_hash>
+        <record_name>RP Draft Save</record_name>
+        <reverted_from/>
+        <source>fe1bdf0b07e01110d44bf16c7c1ed069</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-29 13:06:17</sys_created_on>
+        <sys_id>073c432007891510d44bf16c7c1ed064</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1824a1097120000001</sys_recorded_at>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-07-29 13:06:17</sys_updated_on>
+        <type>Variable</type>
+        <update_guid>c73c43202e891510b4846ff2af1e8b63</update_guid>
+        <update_guid_history>c73c43202e891510b4846ff2af1e8b63:751125695,3e42da2cac85151018bbd0dc81e5e671:471381774,90425a2c6e8515101ce44c4bd563308c:751125695,a4adce9c1109d110f4acdde589460677:471381774,b38d8e9c1609d110aa23973e34e3896e:751125695,2c3d0a9caf09d11095081e4f15ce8ba1:471381774,382d0a9cf009d1103878d63418774e29:751125695,74dcc29cf309d1100f44f36130a83954:471381774,48cc429c8909d1108f806968825316c7:751125695,294cca5ce309d110cb6c34c0d0a3da3e:471381774,1a2c4a5cc109d1104efde037b6435981:751125695,61c00a14c409d1100ea29f196e42b72c:471381774,8db0c6147609d110d326787549e2fe1e:751125695,4c1ef1909409d110ccf2f953cbc0329a:471381774,290ef1909509d11002404455c2849504:751125695,28cdfd50c709d1107b7d2c12305ef75f:471381774,112d75509a09d1104ee5072c10bb43eb:751125695,30cc3150e709d110b278d2ca4e84acc1:471381774,4f7c3d10df09d110ddf4e27eaa0e77a1:751125695,cb6cf910a909d110bf3699e2a3933fb4:471381774,d86cb910fc09d110a7eec72e44c74974:751125695,d71cf510dd09d110d6991f4f48fc481f:471381774,35dbf110e709d1104022182db012b539:751125695,9dabfddc66c5d110fe98bd5e9489aef4:471381774,5a9bfddc92c5d1104b1a732a11d60f4f:751125695,194b39dc51c5d1100863c161861636a7:471381774,513bf5dc23c5d110a45312a228ea6f8a:751125695,bdeaf1dc0dc5d110ea615338c7e5c771:471381774,f0dab1dc36c5d1105cf552b96ca74831:751125695,a02a399cc9c5d110e3e771760302f29c:471381774,870af59ce2c5d110a2b7cfd08babe14a:751125695,97e9a99c1f85d1102a21dbd789767714:471381774,25bc9dd0be85d110595f3be8b34b8573:751125695,f327955c2545d1102b7063657c617695:471381774,8b5095942645d1107c8b1e0185391e0a:751125695,889b41908645d1104c5aede0afc32a22:471381774</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="RP Draft Save">906c472007891510d44bf16c7c1ed00e</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-29 13:06:55</sys_created_on>
+        <sys_db_object display_value="" name="item_option_new">item_option_new</sys_db_object>
+        <sys_id>332440df19514778946b462dad297710</sys_id>
+        <sys_metadata>409b01900745d110d44bf16c7c1ed0db</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RP Draft Save</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_parent display_value="Draft Save PoC">974ed57a07201110d44bf16c7c1ed0cc</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_scope_delete display_value="">501e30fe705f4dd6a4ecf3b00ec1ad64</sys_scope_delete>
+        <sys_update_name>item_option_new_409b01900745d110d44bf16c7c1ed0db</sys_update_name>
+        <sys_update_version display_value="item_option_new_409b01900745d110d44bf16c7c1ed0db">073c432007891510d44bf16c7c1ed064</sys_update_version>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-07-29 13:06:55</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

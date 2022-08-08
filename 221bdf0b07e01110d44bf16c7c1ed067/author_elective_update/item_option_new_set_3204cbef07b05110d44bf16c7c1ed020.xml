@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="item_option_new_set">
+    <item_option_new_set action="DELETE">
+        <create_roles/>
+        <description/>
+        <display_title>false</display_title>
+        <internal_name>vset_01</internal_name>
+        <layout>normal</layout>
+        <name/>
+        <order>100</order>
+        <read_roles/>
+        <set_attributes/>
+        <sys_class_name>item_option_new_set</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-26 09:57:05</sys_created_on>
+        <sys_id>3204cbef07b05110d44bf16c7c1ed020</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>VSet 01</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>item_option_new_set_3204cbef07b05110d44bf16c7c1ed020</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-07-26 09:57:05</sys_updated_on>
+        <title>VSet 01</title>
+        <type>one_to_one</type>
+        <write_roles/>
+    </item_option_new_set>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</application>
+        <file_path/>
+        <instance_id>1d64aec2db06f3082f68c597059619f0</instance_id>
+        <instance_name>dev87737</instance_name>
+        <name>item_option_new_set_3204cbef07b05110d44bf16c7c1ed020</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="item_option_new_set"><item_option_new_set action="INSERT_OR_UPDATE"><create_roles/><description/><display_title>false</display_title><internal_name>vset_01</internal_name><layout>normal</layout><name/><order>100</order><read_roles/><set_attributes/><sys_class_name>item_option_new_set</sys_class_name><sys_created_by>zdravko.verguilov</sys_created_by><sys_created_on>2022-07-26 09:57:05</sys_created_on><sys_id>3204cbef07b05110d44bf16c7c1ed020</sys_id><sys_mod_count>0</sys_mod_count><sys_name>VSet 01</sys_name><sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package><sys_policy/><sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope><sys_update_name>item_option_new_set_3204cbef07b05110d44bf16c7c1ed020</sys_update_name><sys_updated_by>zdravko.verguilov</sys_updated_by><sys_updated_on>2022-07-26 09:57:05</sys_updated_on><title>VSet 01</title><type>one_to_one</type><write_roles/></item_option_new_set></record_update>]]></payload>
+        <payload_hash>-269622023</payload_hash>
+        <record_name>VSet 01</record_name>
+        <reverted_from/>
+        <source>fe1bdf0b07e01110d44bf16c7c1ed069</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-26 09:57:05</sys_created_on>
+        <sys_id>5a244bef07b05110d44bf16c7c1ed0e1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18239f04cec0000001</sys_recorded_at>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-07-26 09:57:05</sys_updated_on>
+        <type>Variable Set</type>
+        <update_guid>52244bef72b051100c6be21d5c8b68e1</update_guid>
+        <update_guid_history>52244bef72b051100c6be21d5c8b68e1:-269622023</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="VSet 01">f7a48816078d5910d44bf16c7c1ed0ad</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-08-03 09:03:48</sys_created_on>
+        <sys_db_object display_value="" name="item_option_new_set">item_option_new_set</sys_db_object>
+        <sys_id>1d77760d088d40218a56fc198d9fbbd1</sys_id>
+        <sys_metadata>3204cbef07b05110d44bf16c7c1ed020</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>VSet 01</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_scope_delete display_value="">501e30fe705f4dd6a4ecf3b00ec1ad64</sys_scope_delete>
+        <sys_update_name>item_option_new_set_3204cbef07b05110d44bf16c7c1ed020</sys_update_name>
+        <sys_update_version display_value="item_option_new_set_3204cbef07b05110d44bf16c7c1ed020">5a244bef07b05110d44bf16c7c1ed0e1</sys_update_version>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-08-03 09:03:48</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

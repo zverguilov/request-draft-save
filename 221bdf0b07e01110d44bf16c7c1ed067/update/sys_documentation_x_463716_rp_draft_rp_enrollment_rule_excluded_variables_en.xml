@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="excluded_variables" label="Excluded Variables" language="en" table="x_463716_rp_draft_rp_enrollment_rule">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>excluded_variables</element>
+            <help/>
+            <hint/>
+            <label>Excluded Variables</label>
+            <language>en</language>
+            <name>x_463716_rp_draft_rp_enrollment_rule</name>
+            <plural>Excluded Variables</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>zdravko.verguilov</sys_created_by>
+            <sys_created_on>2022-07-25 14:35:10</sys_created_on>
+            <sys_id>8e3abe5307741110d44bf16c7c1ed0b7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Excluded Variables</sys_name>
+            <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+            <sys_update_name>sys_documentation_x_463716_rp_draft_rp_enrollment_rule_excluded_variables_en</sys_update_name>
+            <sys_updated_by>zdravko.verguilov</sys_updated_by>
+            <sys_updated_on>2022-07-25 14:35:10</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

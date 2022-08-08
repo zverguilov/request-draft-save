@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_463716_rp_draft.RPDraftUtills</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>This SI holds the majority of the logic behind the RP Draft Save app, split into reusable methods.</description>
+        <name>RPDraftUtills</name>
+        <script><![CDATA[var RPDraftUtills = Class.create();
+RPDraftUtills.prototype = {
+	initialize: function () {},
+	
+	/**
+	* Enrolls an item/record producer to the draft saving functionality.
+	* @param {string} itemID - sys_id of the item/rp.
+	* @return {function} createOption - adds a custom variable to the item/rp.
+	*/
+	enrollItem: function (itemID) {
+		if (!itemID) return;
+
+		var option = this.getOption(itemID);
+
+		if (option) {
+			option.setValue('active', true);
+			return option.update();
+		}
+
+		return this.createOption(itemID);
+	},
+
+	/**
+	* Unenrolls an item/record producer from the draft saving functionality.
+	* @param {string} itemID - sys_id of the item/rp.
+	*/
+	unenrollItem: function (itemID) {
+		if (!itemID) return;
+
+		var option = this.getOption(itemID);
+		if (option) {
+			option.setValue('active', false);
+			option.update();
+		}
+	},
+
+	/**
+	* Checks if the item/rp associated with a record ot RITM is enrolled to the draft save before removing drafts, if any existing drafts should be removed, and if any of those actually exist.
+	* @param {string} ritmID - sys_id of the a RITM, optional.
+	* @param {string} item - sys_id of the item/rp.
+	* @return {boolean} common true/false on all the above checks as a unit.
+	*/
+	checkRITMEnrollment: function (ritmID, item) {
+		if (!ritmID && !item) return;
+
+		if (ritmID) {
+			var ritm = new GlideRecord('sc_req_item');
+			ritm.get(ritmID);
+		}
+
+		var itemID = item || ritm.getValue('cat_item');
+
+		var aChecks = [];
+
+		var enrollment = new GlideRecord('x_463716_rp_draft_rp_enrollment_rule');
+		enrollment.addEncodedQuery('item=' + itemID);
+		enrollment.query();
+
+		aChecks.push(enrollment.next());
+
+		aChecks.push(enrollment.getValue('delete_draft_on_submit'));
+
+		var draft = new GlideRecord('x_463716_rp_draft_rp_draft');
+		draft.addEncodedQuery('user=' + gs.getUserID() + '^item=' + itemID);
+		draft.query();
+
+		aChecks.push(draft.next());
+
+		return aChecks.every(function (e) {
+			return e == true;
+		});
+	},
+
+	/**
+	* Inserts a custom variable to the item/rp that's being enrolled
+	* @param {string} itemID - sys_id of the item/rp
+	*/
+	createOption: function (itemID) {
+		var option = new GlideRecord('item_option_new');
+		option.initialize();
+
+		option.setValue('type', 14);
+		option.setValue('sp_widget', this.getWidget());
+		option.setValue('cat_item', itemID);
+		option.setValue('order', 5000);
+		option.setValue('question_text', 'RP Draft Save');
+		option.setValue('name', 'rp_draft_save');
+
+		option.insert();
+	},
+
+	/**
+	* Retrieves the RP Draft custom variable from an item/rp.
+	* @param {string} itemID - sys_id of the item/rp
+	* @return {GlideRecord} option - gr of the custom variable, if one is found, null otherwise.
+	*/
+	getOption: function (itemID) {
+		var option = new GlideRecord('item_option_new');
+		option.addEncodedQuery('cat_item=' + itemID + '^type=14^sp_widget.id=x_463716_rp_draft_save');
+		option.query();
+
+		return option.next() ? option : null;
+	},
+
+	/**
+	* Retrieves sys_id of the widget used by the custom RP Draft variable.
+	* @return {string} widget.sys_id - sys_id of the widget, if one was found, null otherwise.
+	*/
+	getWidget: function () {
+		var widget = new GlideRecord('sp_widget');
+		widget.addEncodedQuery('id=x_463716_rp_draft_save');
+		widget.query();
+
+		if (widget.next()) return widget.getValue('sys_id');
+
+		return;
+	},
+
+	/**
+	* Retrieves a draft record for a certain item/rp.
+	* @param {string} itemID - sys_id of the item/rp, optional.
+	* @param {string} userID - sys_id of the current user, optional.
+	* @param {string} draftID - sys_id of a draft record, optional.
+	* @return {GlideRecord} draft - gr of the draft record, if one is found, null otherwise.
+	*/
+	getDraft: function (itemID, userID, draftID) {
+		if ((!itemID || !userID) && !draftID) return;
+
+		var draft = new GlideRecord('x_463716_rp_draft_rp_draft');
+		if (draftID) {
+			draft.get(draftID);
+			return draft || null;
+		}
+
+		draft.addEncodedQuery('item=' + itemID + '^user=' + userID);
+		draft.query();
+
+		return draft.next() ? draft : null;
+	},
+
+	/**
+	* Creates a draft record, unique for the provided item/user pair.
+	* @param {string} itemID - sys_id of the item/rp.
+	* @param {string} userID - sys_id of the current user.
+	* @return {function} getDraft - retrieves the draft upon creation.
+	*/
+	createDraft: function (itemID, userID) {
+		var item = new GlideRecord('sc_cat_item');
+		if (!item.get(itemID)) return;
+
+		var draft = new GlideRecord('x_463716_rp_draft_rp_draft');
+		draft.initialize();
+
+		draft.setValue('item', itemID);
+		draft.setValue('user', userID);
+		var draftID = draft.insert();
+
+		return this.getDraft('', '', draftID);
+	},
+
+	/**
+	* Removes a draft record upon item/rp submission.
+	* @param {string} itemID - sys_id of the item/rp.
+	* @param {string} userID - sys_id of the current user.
+	* @param {string} table - table name, optional.
+	* @return {string} draft.sys_id - sys_id of the removed draft record.
+	*/
+	deleteDraft: function (itemID, userID, table) {
+		if (table) {
+			var item = new GlideRecord('sc_cat_item_producer');
+			item.addEncodedQuery('table_name=' + table + '^active=true');
+			item.query();
+
+			if (item.next()) {
+				var draft = new GlideRecord('x_463716_rp_draft_rp_draft');
+				draft.addEncodedQuery('user=' + userID + '^item=' + item.getValue('sys_id'));
+				draft.query();
+
+				if (draft.next() && this.checkRITMEnrollment('', item.getValue('sys_id'))) {
+					return draft.deleteRecord();
+				}
+			}
+		}
+
+		var draft = new GlideRecord('x_463716_rp_draft_rp_draft');
+		draft.addEncodedQuery('user=' + userID + '^item=' + itemID);
+		draft.query();
+
+		if (draft.next()) {
+			return draft.deleteRecord();
+		}
+	},
+
+	/**
+	* Retrieves a collection of sys_id's of all variables associated with an item/rp, including the variable set ones.
+	* @param {string} itemID - sys_id of the item/rp.
+	* @param {string} mode - optional, determines the type of return of the function - ref. qualifier string or array of sys_id's.
+	* @return {string} encoded query - 'sys_idIN' + a comma separated list of variable sys_id's.
+	* @return {array} aVariables - an array of variable sys_id's.
+	*/
+	getVariables: function (itemID, mode) {
+		if (!itemID) return;
+
+		var aVariableSetIDs = [];
+		var aVariables = [];
+
+		var m2mRelation = new GlideRecord('io_set_item');
+		m2mRelation.addEncodedQuery('sc_cat_item=' + itemID);
+		m2mRelation.query();
+
+		while (m2mRelation.next()) {
+			aVariableSetIDs.push(m2mRelation.getValue('variable_set'));
+		}
+
+		var sVariableQuery = 'active=true^name!=rp_draft_save^cat_item=' + itemID;
+		sVariableQuery += aVariableSetIDs ? '^ORvariable_set.sys_idIN' + aVariableSetIDs.join(',') : '';
+
+		var variable = new GlideRecord('item_option_new');
+		variable.addEncodedQuery(sVariableQuery);
+		variable.query();
+
+		while (variable.next()) {
+			!mode ? aVariables.push({
+					name: variable.getValue('name'),
+					id: variable.getValue('sys_id')
+				}) :
+				mode == 'sys_id' ? aVariables.push(variable.getValue(mode)) : null;
+		}
+
+		return mode && mode == 'sys_id' ? 'sys_idIN' + aVariables.join(',') : aVariables;
+	},
+
+	/**
+	* Retrieves a collection of sys_id's of variables that should be excluded from the RP Draft functionlity.
+	* @param {string} itemID - sys_id of the item/rp.
+	* @return {array} excluded_variables - an array of variable sys_id's.
+	*/
+	getExcluded: function (itemID) {
+		if (!itemID) return;
+
+		var enrollmentRule = new GlideRecord('x_463716_rp_draft_rp_enrollment_rule');
+		enrollmentRule.addEncodedQuery('item=' + itemID);
+		enrollmentRule.query();
+
+		return enrollmentRule.next() && enrollmentRule.getValue('excluded_variables') ?
+			enrollmentRule.getValue('excluded_variables').split(',') : [];
+	},
+	
+	/**
+	* Utility function, intended to replace gs.sleep() in scoped environment.
+	* @param {number} time - the intended delay in miliseconds.
+	*/
+	wait: function(time) {
+		var t1 = new GlideDateTime().getNumericValue();	 
+		var t2 = new GlideDateTime().getNumericValue();	 
+
+		var duration = t2 - t1;	 
+
+		while(duration < time) { 
+
+		t2 = new GlideDateTime().getNumericValue();	 
+		duration = t2 - t1;
+		}	 
+	},
+
+	type: 'RPDraftUtills'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-12 12:10:19</sys_created_on>
+        <sys_id>5d4cdf4b07e01110d44bf16c7c1ed0cd</sys_id>
+        <sys_mod_count>82</sys_mod_count>
+        <sys_name>RPDraftUtills</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>sys_script_include_5d4cdf4b07e01110d44bf16c7c1ed0cd</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-08-04 12:09:32</sys_updated_on>
+    </sys_script_include>
+</record_update>

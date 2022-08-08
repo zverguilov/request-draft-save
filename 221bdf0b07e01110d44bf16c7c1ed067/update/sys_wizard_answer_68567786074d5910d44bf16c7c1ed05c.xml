@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_wizard_answer">
+    <sys_wizard_answer action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <answer>SNDoc Tags</answer>
+        <button_label/>
+        <dependent_value/>
+        <element/>
+        <name>SNDoc Tags</name>
+        <next_question/>
+        <order>100</order>
+        <payload_name/>
+        <question display_value="Application File" name="Application File">68b3007007133010d44bf16c7c1ed024</question>
+        <roles/>
+        <script/>
+        <sys_class_name>sys_wizard_answer</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-08-03 08:01:03</sys_created_on>
+        <sys_id>68567786074d5910d44bf16c7c1ed05c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>SNDoc Tags</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>sys_wizard_answer_68567786074d5910d44bf16c7c1ed05c</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-08-03 08:01:03</sys_updated_on>
+        <table/>
+        <target_url>u_sndoc_tags.do</target_url>
+        <type>1</type>
+    </sys_wizard_answer>
+</record_update>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="item_option_new" version="2" view="rp_draft">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>question_text</element>
+            <list_id display_value="item_option_new" element="NULL" name="item_option_new" parent="NULL" relationship="NULL" sys_domain="global" view="f33c1d900785d110d44bf16c7c1ed023">d87cd1d00785d110d44bf16c7c1ed007</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>zdravko.verguilov</sys_created_by>
+            <sys_created_on>2022-07-28 10:19:23</sys_created_on>
+            <sys_id>947cd1d00785d110d44bf16c7c1ed008</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>zdravko.verguilov</sys_updated_by>
+            <sys_updated_on>2022-07-28 10:19:23</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>cat_item</element>
+            <list_id display_value="item_option_new" element="NULL" name="item_option_new" parent="NULL" relationship="NULL" sys_domain="global" view="f33c1d900785d110d44bf16c7c1ed023">d87cd1d00785d110d44bf16c7c1ed007</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>zdravko.verguilov</sys_created_by>
+            <sys_created_on>2022-07-28 10:19:23</sys_created_on>
+            <sys_id>187cd1d00785d110d44bf16c7c1ed008</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>zdravko.verguilov</sys_updated_by>
+            <sys_updated_on>2022-07-28 10:19:23</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>variable_set</element>
+            <list_id display_value="item_option_new" element="NULL" name="item_option_new" parent="NULL" relationship="NULL" sys_domain="global" view="f33c1d900785d110d44bf16c7c1ed023">d87cd1d00785d110d44bf16c7c1ed007</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>zdravko.verguilov</sys_created_by>
+            <sys_created_on>2022-07-28 10:19:23</sys_created_on>
+            <sys_id>987cd1d00785d110d44bf16c7c1ed008</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>zdravko.verguilov</sys_updated_by>
+            <sys_updated_on>2022-07-28 10:19:23</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>item_option_new</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>zdravko.verguilov</sys_created_by>
+            <sys_created_on>2022-07-28 10:19:23</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d87cd1d00785d110d44bf16c7c1ed007</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>item_option_new</sys_name>
+            <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+            <sys_update_name>sys_ui_list_item_option_new_rp_draft</sys_update_name>
+            <sys_updated_by>zdravko.verguilov</sys_updated_by>
+            <sys_updated_on>2022-07-28 10:19:23</sys_updated_on>
+            <sys_user/>
+            <view display_value="RP Draft" name="rp_draft">f33c1d900785d110d44bf16c7c1ed023</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

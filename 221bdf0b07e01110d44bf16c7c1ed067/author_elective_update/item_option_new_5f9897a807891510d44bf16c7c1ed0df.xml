@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="item_option_new">
+    <item_option_new action="DELETE">
+        <active>false</active>
+        <attributes/>
+        <cat_item display_value="iPhone 6s">bd6fa75a4f334200086eeed18110c79e</cat_item>
+        <category/>
+        <choice_direction>down</choice_direction>
+        <choice_field/>
+        <choice_table/>
+        <create_roles/>
+        <default_html_value/>
+        <default_value/>
+        <delete_roles/>
+        <delivery_plan/>
+        <description/>
+        <display_title>false</display_title>
+        <do_not_select_first>false</do_not_select_first>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <enable_also_request_for>false</enable_also_request_for>
+        <example_text/>
+        <field/>
+        <global>false</global>
+        <help_tag>More information</help_tag>
+        <help_text/>
+        <hidden>false</hidden>
+        <include_none>false</include_none>
+        <instructions/>
+        <layout>normal</layout>
+        <list_table/>
+        <lookup_label/>
+        <lookup_price/>
+        <lookup_table/>
+        <lookup_unique>false</lookup_unique>
+        <lookup_value/>
+        <macro/>
+        <macroponent/>
+        <mandatory>false</mandatory>
+        <map_to_field>false</map_to_field>
+        <mask_use_confirmation>false</mask_use_confirmation>
+        <mask_use_encryption>false</mask_use_encryption>
+        <name>rp_draft_save</name>
+        <order>5000</order>
+        <price_if_checked>0</price_if_checked>
+        <pricing_implications>false</pricing_implications>
+        <published_ref/>
+        <question_text>RP Draft Save</question_text>
+        <read_only>false</read_only>
+        <read_roles/>
+        <read_script/>
+        <rec_lookup_price/>
+        <rec_price_if_checked>0</rec_price_if_checked>
+        <record/>
+        <record_producer_table/>
+        <reference/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <rich_text/>
+        <roles_to_use_also_request_for/>
+        <save_script/>
+        <scale_max>5</scale_max>
+        <scale_min>0</scale_min>
+        <show_help>false</show_help>
+        <show_help_on_load>false</show_help_on_load>
+        <sp_widget display_value="RP Draft Save">84cd4e1b07b01110d44bf16c7c1ed050</sp_widget>
+        <summary_macro/>
+        <sys_class_name>item_option_new</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-29 14:00:22</sys_created_on>
+        <sys_id>5f9897a807891510d44bf16c7c1ed0df</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>RP Draft Save</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>item_option_new_5f9897a807891510d44bf16c7c1ed0df</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-08-03 06:55:05</sys_updated_on>
+        <table/>
+        <tooltip/>
+        <type>14</type>
+        <ui_page/>
+        <unique>false</unique>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <validate_regex/>
+        <variable_name/>
+        <variable_set/>
+        <variable_width/>
+        <visibility>1</visibility>
+        <visible_bundle>true</visible_bundle>
+        <visible_guide>true</visible_guide>
+        <visible_standalone>true</visible_standalone>
+        <visible_summary>true</visible_summary>
+        <write_roles/>
+    </item_option_new>
+    <sys_translated_text action="DELETE" query="documentkey=5f9897a807891510d44bf16c7c1ed0df"/>
+    <fx_price action="DELETE" query="id=5f9897a807891510d44bf16c7c1ed0df"/>
+    <fx_price action="DELETE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>price_if_checked</field>
+        <id>5f9897a807891510d44bf16c7c1ed0df</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-29 14:00:23</sys_created_on>
+        <sys_id>9b9897a807891510d44bf16c7c1ed0e2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-07-29 14:00:23</sys_updated_on>
+        <table>item_option_new</table>
+        <type>calculated</type>
+    </fx_price>
+    <fx_price action="DELETE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>rec_price_if_checked</field>
+        <id>5f9897a807891510d44bf16c7c1ed0df</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-29 14:00:23</sys_created_on>
+        <sys_id>539897a807891510d44bf16c7c1ed0e2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-07-29 14:00:23</sys_updated_on>
+        <table>item_option_new</table>
+        <type>calculated</type>
+    </fx_price>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</application>
+        <file_path/>
+        <instance_id>1d64aec2db06f3082f68c597059619f0</instance_id>
+        <instance_name>dev87737</instance_name>
+        <name>item_option_new_5f9897a807891510d44bf16c7c1ed0df</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="item_option_new"><item_option_new action="INSERT_OR_UPDATE"><active>false</active><attributes/><cat_item display_value="iPhone 6s">bd6fa75a4f334200086eeed18110c79e</cat_item><category/><choice_direction>down</choice_direction><choice_field/><choice_table/><create_roles/><default_html_value/><default_value/><delete_roles/><delivery_plan/><description/><display_title>false</display_title><do_not_select_first>false</do_not_select_first><dynamic_default_value/><dynamic_ref_qual/><enable_also_request_for>false</enable_also_request_for><example_text/><field/><global>false</global><help_tag>More information</help_tag><help_text/><hidden>false</hidden><include_none>false</include_none><instructions/><layout>normal</layout><list_table/><lookup_label/><lookup_price/><lookup_table/><lookup_unique>false</lookup_unique><lookup_value/><macro/><macroponent/><mandatory>false</mandatory><map_to_field>false</map_to_field><mask_use_confirmation>false</mask_use_confirmation><mask_use_encryption>false</mask_use_encryption><name>rp_draft_save</name><order>5000</order><price_if_checked>0</price_if_checked><pricing_implications>false</pricing_implications><published_ref/><question_text>RP Draft Save</question_text><read_only>false</read_only><read_roles/><read_script/><rec_lookup_price/><rec_price_if_checked>0</rec_price_if_checked><record/><record_producer_table/><reference/><reference_qual/><reference_qual_condition/><rich_text/><roles_to_use_also_request_for/><save_script/><scale_max>5</scale_max><scale_min>0</scale_min><show_help>false</show_help><show_help_on_load>false</show_help_on_load><sp_widget display_value="RP Draft Save">84cd4e1b07b01110d44bf16c7c1ed050</sp_widget><summary_macro/><sys_class_name>item_option_new</sys_class_name><sys_created_by>zdravko.verguilov</sys_created_by><sys_created_on>2022-07-29 14:00:22</sys_created_on><sys_id>5f9897a807891510d44bf16c7c1ed0df</sys_id><sys_mod_count>3</sys_mod_count><sys_name>RP Draft Save</sys_name><sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package><sys_policy/><sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope><sys_update_name>item_option_new_5f9897a807891510d44bf16c7c1ed0df</sys_update_name><sys_updated_by>zdravko.verguilov</sys_updated_by><sys_updated_on>2022-08-03 06:55:05</sys_updated_on><table/><tooltip/><type>14</type><ui_page/><unique>false</unique><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><validate_regex/><variable_name/><variable_set/><variable_width/><visibility>1</visibility><visible_bundle>true</visible_bundle><visible_guide>true</visible_guide><visible_standalone>true</visible_standalone><visible_summary>true</visible_summary><write_roles/></item_option_new><sys_translated_text action="delete_multiple" query="documentkey=5f9897a807891510d44bf16c7c1ed0df"/><fx_price action="delete_multiple" query="id=5f9897a807891510d44bf16c7c1ed0df"/><fx_price action="INSERT_OR_UPDATE"><amount>0</amount><currency display_value="USD">USD</currency><field>price_if_checked</field><id>5f9897a807891510d44bf16c7c1ed0df</id><parent/><reference_amount>0</reference_amount><reference_currency display_value="USD">USD</reference_currency><sys_created_by>zdravko.verguilov</sys_created_by><sys_created_on>2022-07-29 14:00:23</sys_created_on><sys_id>9b9897a807891510d44bf16c7c1ed0e2</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>zdravko.verguilov</sys_updated_by><sys_updated_on>2022-07-29 14:00:23</sys_updated_on><table>item_option_new</table><type>calculated</type></fx_price><fx_price action="INSERT_OR_UPDATE"><amount>0</amount><currency display_value="USD">USD</currency><field>rec_price_if_checked</field><id>5f9897a807891510d44bf16c7c1ed0df</id><parent/><reference_amount>0</reference_amount><reference_currency display_value="USD">USD</reference_currency><sys_created_by>zdravko.verguilov</sys_created_by><sys_created_on>2022-07-29 14:00:23</sys_created_on><sys_id>539897a807891510d44bf16c7c1ed0e2</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>zdravko.verguilov</sys_updated_by><sys_updated_on>2022-07-29 14:00:23</sys_updated_on><table>item_option_new</table><type>calculated</type></fx_price></record_update>]]></payload>
+        <payload_hash>666893747</payload_hash>
+        <record_name>RP Draft Save</record_name>
+        <reverted_from/>
+        <source>fe1bdf0b07e01110d44bf16c7c1ed069</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-08-03 06:55:06</sys_created_on>
+        <sys_id>ee37abc6070d5910d44bf16c7c1ed006</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>182627c8e3d0000001</sys_recorded_at>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-08-03 06:55:06</sys_updated_on>
+        <type>Variable</type>
+        <update_guid>e237abc6e60d59100bb355b4b3a52806</update_guid>
+        <update_guid_history>e237abc6e60d59100bb355b4b3a52806:666893747,1343ff39c1cd1910bba35e12341e395c:1126314178,74e27b39a4cd191084070ce5e08d4d66:666893747,2b98d7a8788915101755c580154d473d:1126314178</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="RP Draft Save">d4b4c816078d5910d44bf16c7c1ed012</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-08-03 09:03:50</sys_created_on>
+        <sys_db_object display_value="" name="item_option_new">item_option_new</sys_db_object>
+        <sys_id>68cf7ae2665d49dc9ead7002c3351cd9</sys_id>
+        <sys_metadata>5f9897a807891510d44bf16c7c1ed0df</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RP Draft Save</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_parent display_value="iPhone 6s">bd6fa75a4f334200086eeed18110c79e</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_scope_delete display_value="">501e30fe705f4dd6a4ecf3b00ec1ad64</sys_scope_delete>
+        <sys_update_name>item_option_new_5f9897a807891510d44bf16c7c1ed0df</sys_update_name>
+        <sys_update_version display_value="item_option_new_5f9897a807891510d44bf16c7c1ed0df">ee37abc6070d5910d44bf16c7c1ed006</sys_update_version>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-08-03 09:03:50</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

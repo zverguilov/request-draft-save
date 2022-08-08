@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>false</admin_overrides>
+        <advanced>true</advanced>
+        <condition/>
+        <description>Allow list_edit for item in x_463716_rp_draft_rp_enrollment_rule, for users with role snc_internal, and if the ACL script returns true.</description>
+        <name>x_463716_rp_draft_rp_enrollment_rule.item</name>
+        <operation display_value="list_edit">54f535270a0a0b8c007c67009ab2bdc0</operation>
+        <script><![CDATA[answer = false;]]></script>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-08-05 07:16:38</sys_created_on>
+        <sys_id>ed5fbd3e07cdd910d44bf16c7c1ed06b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_463716_rp_draft_rp_enrollment_rule.item</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>sys_security_acl_ed5fbd3e07cdd910d44bf16c7c1ed06b</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-08-05 07:16:57</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+</record_update>
