@@ -77,6 +77,7 @@
 	var itemID = $sp.getParameter('sys_id');
 	data.item = itemID
 	data.page = $sp.getParameter('id');
+	data.user = input && input.requestedFor ? input.requestedFor : gs.getUserID();
 
 	if(!input || !input.catItemCut && !input.remove) {
 		data.draft = utils.getDraft(itemID, gs.getUserID()) || utils.createDraft(itemID, gs.getUserID())
@@ -115,14 +116,14 @@
         <sys_created_by>zdravko.verguilov</sys_created_by>
         <sys_created_on>2022-07-25 11:22:19</sys_created_on>
         <sys_id>84cd4e1b07b01110d44bf16c7c1ed050</sys_id>
-        <sys_mod_count>120</sys_mod_count>
+        <sys_mod_count>121</sys_mod_count>
         <sys_name>RP Draft Save</sys_name>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
         <sys_update_name>sp_widget_84cd4e1b07b01110d44bf16c7c1ed050</sys_update_name>
         <sys_updated_by>zdravko.verguilov</sys_updated_by>
-        <sys_updated_on>2022-08-04 12:11:37</sys_updated_on>
+        <sys_updated_on>2022-08-08 07:42:11</sys_updated_on>
         <template><![CDATA[<div>
 <!-- your widget template -->
 </div>]]></template>

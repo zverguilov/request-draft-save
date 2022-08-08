@@ -4,13 +4,13 @@
             <element>item</element>
             <position>0</position>
             <sys_created_by>zdravko.verguilov</sys_created_by>
-            <sys_created_on>2022-08-02 13:35:05</sys_created_on>
-            <sys_id>403937bd07cd1910d44bf16c7c1ed0ae</sys_id>
+            <sys_created_on>2022-08-08 08:05:12</sys_created_on>
+            <sys_id>5a376df30705dd10d44bf16c7c1ed03f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_463716_rp_draft_rp_enrollment_rule" sys_domain="global" view="Default view">e921e6da07b01110d44bf16c7c1ed01a</sys_ui_section>
             <sys_updated_by>zdravko.verguilov</sys_updated_by>
-            <sys_updated_on>2022-08-02 13:35:05</sys_updated_on>
+            <sys_updated_on>2022-08-08 08:05:12</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>delete_draft_on_submit</element>
             <position>1</position>
             <sys_created_by>zdravko.verguilov</sys_created_by>
-            <sys_created_on>2022-08-02 13:35:05</sys_created_on>
-            <sys_id>c43937bd07cd1910d44bf16c7c1ed0ae</sys_id>
+            <sys_created_on>2022-08-08 08:05:12</sys_created_on>
+            <sys_id>de376df30705dd10d44bf16c7c1ed03f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_463716_rp_draft_rp_enrollment_rule" sys_domain="global" view="Default view">e921e6da07b01110d44bf16c7c1ed01a</sys_ui_section>
             <sys_updated_by>zdravko.verguilov</sys_updated_by>
-            <sys_updated_on>2022-08-02 13:35:05</sys_updated_on>
+            <sys_updated_on>2022-08-08 08:05:12</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>.split</element>
             <position>2</position>
             <sys_created_by>zdravko.verguilov</sys_created_by>
-            <sys_created_on>2022-08-02 13:35:05</sys_created_on>
-            <sys_id>4c3937bd07cd1910d44bf16c7c1ed0ae</sys_id>
+            <sys_created_on>2022-08-08 08:05:12</sys_created_on>
+            <sys_id>56376df30705dd10d44bf16c7c1ed040</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_463716_rp_draft_rp_enrollment_rule" sys_domain="global" view="Default view">e921e6da07b01110d44bf16c7c1ed01a</sys_ui_section>
             <sys_updated_by>zdravko.verguilov</sys_updated_by>
-            <sys_updated_on>2022-08-02 13:35:05</sys_updated_on>
+            <sys_updated_on>2022-08-08 08:05:12</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
@@ -46,55 +46,83 @@
             <element>excluded_variables</element>
             <position>3</position>
             <sys_created_by>zdravko.verguilov</sys_created_by>
-            <sys_created_on>2022-08-02 13:35:05</sys_created_on>
-            <sys_id>c03937bd07cd1910d44bf16c7c1ed0af</sys_id>
+            <sys_created_on>2022-08-08 08:05:12</sys_created_on>
+            <sys_id>da376df30705dd10d44bf16c7c1ed040</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_463716_rp_draft_rp_enrollment_rule" sys_domain="global" view="Default view">e921e6da07b01110d44bf16c7c1ed01a</sys_ui_section>
             <sys_updated_by>zdravko.verguilov</sys_updated_by>
-            <sys_updated_on>2022-08-02 13:35:05</sys_updated_on>
+            <sys_updated_on>2022-08-08 08:05:12</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>has_req_for</element>
+            <position>4</position>
+            <sys_created_by>zdravko.verguilov</sys_created_by>
+            <sys_created_on>2022-08-08 08:05:12</sys_created_on>
+            <sys_id>52376df30705dd10d44bf16c7c1ed041</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_463716_rp_draft_rp_enrollment_rule" sys_domain="global" view="Default view">e921e6da07b01110d44bf16c7c1ed01a</sys_ui_section>
+            <sys_updated_by>zdravko.verguilov</sys_updated_by>
+            <sys_updated_on>2022-08-08 08:05:12</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>requested_for_variable</element>
+            <position>5</position>
+            <sys_created_by>zdravko.verguilov</sys_created_by>
+            <sys_created_on>2022-08-08 08:05:12</sys_created_on>
+            <sys_id>d6376df30705dd10d44bf16c7c1ed041</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_463716_rp_draft_rp_enrollment_rule" sys_domain="global" view="Default view">e921e6da07b01110d44bf16c7c1ed01a</sys_ui_section>
+            <sys_updated_by>zdravko.verguilov</sys_updated_by>
+            <sys_updated_on>2022-08-08 08:05:12</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.end_split</element>
-            <position>4</position>
+            <position>6</position>
             <sys_created_by>zdravko.verguilov</sys_created_by>
-            <sys_created_on>2022-08-02 13:35:05</sys_created_on>
-            <sys_id>483937bd07cd1910d44bf16c7c1ed0af</sys_id>
+            <sys_created_on>2022-08-08 08:05:12</sys_created_on>
+            <sys_id>5e376df30705dd10d44bf16c7c1ed041</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_463716_rp_draft_rp_enrollment_rule" sys_domain="global" view="Default view">e921e6da07b01110d44bf16c7c1ed01a</sys_ui_section>
             <sys_updated_by>zdravko.verguilov</sys_updated_by>
-            <sys_updated_on>2022-08-02 13:35:05</sys_updated_on>
+            <sys_updated_on>2022-08-08 08:05:12</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>item_page</element>
-            <position>5</position>
+            <position>7</position>
             <sys_created_by>zdravko.verguilov</sys_created_by>
-            <sys_created_on>2022-08-02 13:35:05</sys_created_on>
-            <sys_id>cc3937bd07cd1910d44bf16c7c1ed0af</sys_id>
+            <sys_created_on>2022-08-08 08:05:12</sys_created_on>
+            <sys_id>d2376df30705dd10d44bf16c7c1ed042</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_463716_rp_draft_rp_enrollment_rule" sys_domain="global" view="Default view">e921e6da07b01110d44bf16c7c1ed01a</sys_ui_section>
             <sys_updated_by>zdravko.verguilov</sys_updated_by>
-            <sys_updated_on>2022-08-02 13:35:05</sys_updated_on>
+            <sys_updated_on>2022-08-08 08:05:12</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>redirection_page</element>
-            <position>6</position>
+            <position>8</position>
             <sys_created_by>zdravko.verguilov</sys_created_by>
-            <sys_created_on>2022-08-02 13:35:05</sys_created_on>
-            <sys_id>443937bd07cd1910d44bf16c7c1ed0b0</sys_id>
+            <sys_created_on>2022-08-08 08:05:12</sys_created_on>
+            <sys_id>5a376df30705dd10d44bf16c7c1ed042</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_463716_rp_draft_rp_enrollment_rule" sys_domain="global" view="Default view">e921e6da07b01110d44bf16c7c1ed01a</sys_ui_section>
             <sys_updated_by>zdravko.verguilov</sys_updated_by>
-            <sys_updated_on>2022-08-02 13:35:05</sys_updated_on>
+            <sys_updated_on>2022-08-08 08:05:12</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

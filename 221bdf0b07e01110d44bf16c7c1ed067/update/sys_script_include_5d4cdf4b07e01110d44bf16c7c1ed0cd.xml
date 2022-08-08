@@ -204,10 +204,11 @@ RPDraftUtills.prototype = {
 	* Retrieves a collection of sys_id's of all variables associated with an item/rp, including the variable set ones.
 	* @param {string} itemID - sys_id of the item/rp.
 	* @param {string} mode - optional, determines the type of return of the function - ref. qualifier string or array of sys_id's.
+	* @param {boolean} requestedFor - optional, if provided limits the query to only variables referencing 'sys_user' table.
 	* @return {string} encoded query - 'sys_idIN' + a comma separated list of variable sys_id's.
 	* @return {array} aVariables - an array of variable sys_id's.
 	*/
-	getVariables: function (itemID, mode) {
+	getVariables: function (itemID, mode, requestedFor) {
 		if (!itemID) return;
 
 		var aVariableSetIDs = [];
@@ -222,6 +223,7 @@ RPDraftUtills.prototype = {
 		}
 
 		var sVariableQuery = 'active=true^name!=rp_draft_save^cat_item=' + itemID;
+		sVariableQuery += requestedFor ? '^reference=sys_user' : '';
 		sVariableQuery += aVariableSetIDs ? '^ORvariable_set.sys_idIN' + aVariableSetIDs.join(',') : '';
 
 		var variable = new GlideRecord('item_option_new');
@@ -278,13 +280,13 @@ RPDraftUtills.prototype = {
         <sys_created_by>zdravko.verguilov</sys_created_by>
         <sys_created_on>2022-07-12 12:10:19</sys_created_on>
         <sys_id>5d4cdf4b07e01110d44bf16c7c1ed0cd</sys_id>
-        <sys_mod_count>82</sys_mod_count>
+        <sys_mod_count>84</sys_mod_count>
         <sys_name>RPDraftUtills</sys_name>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
         <sys_update_name>sys_script_include_5d4cdf4b07e01110d44bf16c7c1ed0cd</sys_update_name>
         <sys_updated_by>zdravko.verguilov</sys_updated_by>
-        <sys_updated_on>2022-08-04 12:09:32</sys_updated_on>
+        <sys_updated_on>2022-08-08 09:26:16</sys_updated_on>
     </sys_script_include>
 </record_update>
