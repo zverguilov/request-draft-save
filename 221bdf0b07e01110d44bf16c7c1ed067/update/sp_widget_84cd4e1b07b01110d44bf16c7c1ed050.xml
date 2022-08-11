@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller=function($scope) {
+        <client_script><![CDATA[api.controller = function ($scope) {
 	/* widget controller */
 	var c = this;
 	c.variables = [];
@@ -9,27 +9,25 @@
 	var draftPage = $scope.data.draftPage;
 
 	//Initial sync
-	c.server.update().then(function(res) {
-		res.payload.forEach(function(e) {
-			if(e.value) $scope.page.g_form.setValue(e.name, e.value);
-		})
+	$scope.data.payload.forEach(function (e) {
+		if (e.value) $scope.page.g_form.setValue(e.name, e.value);
 	})
 
 	//10-second draft rolling auto-save
 	c.variables = $scope.data.varList;
 	c.data.item = $scope.data.draftItem;
 
-	var interval = setInterval(function() {
-		
+	var interval = setInterval(function () {
+
 		var page = window.location.href.split('id=')[1].split('&')[0];
 
-		if(page == draftPage) {
-			c.data.payload = c.variables.reduce(function(acc, curr) {			
+		if (page == draftPage) {
+			c.data.payload = c.variables.reduce(function (acc, curr) {
 				acc.push({
 					name: curr,
 					value: $scope.page.g_form.getValue(curr)
 				});
-				return acc;			
+				return acc;
 			}, []);
 
 			c.server.update();
@@ -38,12 +36,12 @@
 		}
 
 		var table = window.location.href.split('table=')[1] ?
-				window.location.href.split('table=')[1].split('&')[0] : ''
+			window.location.href.split('table=')[1].split('&')[0] : ''
 
-		if(table && page == redirectionPage) {
+		if (table && page == redirectionPage) {
 			c.data.remove = true;
 			c.data.table = table;
-			c.server.update().then(function(res) {
+			c.server.update().then(function (res) {
 				clearInterval(interval);
 			})
 
@@ -77,7 +75,6 @@
 	var itemID = $sp.getParameter('sys_id');
 	data.item = itemID
 	data.page = $sp.getParameter('id');
-	data.user = input && input.requestedFor ? input.requestedFor : gs.getUserID();
 
 	if(!input || !input.catItemCut && !input.remove) {
 		data.draft = utils.getDraft(itemID, gs.getUserID()) || utils.createDraft(itemID, gs.getUserID())
@@ -123,7 +120,7 @@
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
         <sys_update_name>sp_widget_84cd4e1b07b01110d44bf16c7c1ed050</sys_update_name>
         <sys_updated_by>zdravko.verguilov</sys_updated_by>
-        <sys_updated_on>2022-08-08 07:42:11</sys_updated_on>
+        <sys_updated_on>2022-08-11 11:01:52</sys_updated_on>
         <template><![CDATA[<div>
 <!-- your widget template -->
 </div>]]></template>

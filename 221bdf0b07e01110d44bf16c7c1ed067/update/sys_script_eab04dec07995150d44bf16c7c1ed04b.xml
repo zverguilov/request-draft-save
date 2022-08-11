@@ -3,7 +3,7 @@
         <abort_action>false</abort_action>
         <access>package_private</access>
         <action_delete>false</action_delete>
-        <action_insert>true</action_insert>
+        <action_insert>false</action_insert>
         <action_query>false</action_query>
         <action_update>true</action_update>
         <active>true</active>
@@ -15,12 +15,13 @@
         <condition/>
         <description/>
         <execute_function>false</execute_function>
-        <filter_condition table="x_463716_rp_draft_rp_enrollment_rule">multiple_item_enrollment=false^EQ<item endquery="false" field="multiple_item_enrollment" goto="false" newquery="false" operator="=" or="false" value="false"/>
+        <filter_condition table="x_463716_rp_draft_rp_enrollment_rule">multiple_item_enrollment=true^itemsVALCHANGES^EQ<item endquery="false" field="multiple_item_enrollment" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="false" field="items" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </filter_condition>
         <is_rest>false</is_rest>
         <message/>
-        <name>Check Excluded Variables</name>
+        <name>Update Items</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -31,50 +32,47 @@
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
-	var utils = new x_463716_rp_draft.RPDraftUtills();
-	var itemID = current.getValue('item');
-	var excludedVariables = current.getValue('excluded_variables') || '';
-	var itemVariables = utils.getVariables(itemID);
+	var prevItems = previous.getValue('items').split(',');
+	var currItems = current.getValue('items').split(',');
 	
-	var includedVariables = itemVariables
-	.map(function(e) {
-		return e.id;
-	})
-	.filter(function(e) {
-		return !excludedVariables.split(',').some(function(id) {
-			return id == e;
+	var itemsToUnenroll = prevItems.filter(function(item) {
+		return !currItems.some(function(emt) {
+			return item == emt;
 		});
 	});
 	
-	if(itemVariables.length < 1) {
-		gs.addErrorMessage('This item has no variables to save!');
-		current.setAbortAction(true);
-		return;
-	}
-		
-	if(includedVariables.length < 1) {
-		gs.addErrorMessage('You have excluded all possible variables, there is no data left to enroll in the draft saves!');
-		current.setAbortAction(true);
-	}
-
+	var itemsToEnroll = currItems.filter(function(item) {
+		return !prevItems.some(function(emt) {
+			return item == emt;
+		});
+	});
+	
+	itemsToUnenroll.forEach(function(e) {
+		new x_463716_rp_draft.RPDraftUtills().unenrollItem(e);
+	});
+	
+	itemsToEnroll.forEach(function(e) {
+		new x_463716_rp_draft.RPDraftUtills().enrollItem(e);
+	});
+	
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>zdravko.verguilov</sys_created_by>
-        <sys_created_on>2022-07-28 12:00:34</sys_created_on>
+        <sys_created_on>2022-08-10 13:12:27</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>b7e1f55407c5d110d44bf16c7c1ed09b</sys_id>
-        <sys_mod_count>7</sys_mod_count>
-        <sys_name>Check Excluded Variables</sys_name>
+        <sys_id>eab04dec07995150d44bf16c7c1ed04b</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Update Items</sys_name>
         <sys_overrides/>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
-        <sys_update_name>sys_script_b7e1f55407c5d110d44bf16c7c1ed09b</sys_update_name>
+        <sys_update_name>sys_script_eab04dec07995150d44bf16c7c1ed04b</sys_update_name>
         <sys_updated_by>zdravko.verguilov</sys_updated_by>
-        <sys_updated_on>2022-08-10 14:37:14</sys_updated_on>
+        <sys_updated_on>2022-08-10 13:30:04</sys_updated_on>
         <template/>
-        <when>before</when>
+        <when>after</when>
     </sys_script>
-    <sys_translated_text action="delete_multiple" query="documentkey=b7e1f55407c5d110d44bf16c7c1ed09b"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=eab04dec07995150d44bf16c7c1ed04b"/>
 </record_update>

@@ -112,6 +112,34 @@
             <sys_user/>
             <type/>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>multiple_items_enrollment</element>
+            <position>8</position>
+            <sys_created_by>zdravko.verguilov</sys_created_by>
+            <sys_created_on>2022-08-10 08:45:23</sys_created_on>
+            <sys_id>16938c2807d55150d44bf16c7c1ed08f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_463716_rp_draft_rp_draft" sys_domain="global" view="Default view">42c0075a07341110d44bf16c7c1ed008</sys_ui_section>
+            <sys_updated_by>zdravko.verguilov</sys_updated_by>
+            <sys_updated_on>2022-08-10 08:45:23</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>items</element>
+            <position>9</position>
+            <sys_created_by>zdravko.verguilov</sys_created_by>
+            <sys_created_on>2022-08-10 08:46:38</sys_created_on>
+            <sys_id>20e3c06807d55150d44bf16c7c1ed011</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_463716_rp_draft_rp_draft" sys_domain="global" view="Default view">42c0075a07341110d44bf16c7c1ed008</sys_ui_section>
+            <sys_updated_by>zdravko.verguilov</sys_updated_by>
+            <sys_updated_on>2022-08-10 08:46:38</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>
             <header>false</header>

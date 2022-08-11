@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_dictionary action="INSERT_OR_UPDATE" element="requested_for_variable" table="x_463716_rp_draft_rp_enrollment_rule">
-        <active>true</active>
+        <active>false</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
         <attributes/>
@@ -54,14 +54,14 @@
         <sys_created_by>zdravko.verguilov</sys_created_by>
         <sys_created_on>2022-08-08 08:02:12</sys_created_on>
         <sys_id>131669b30705dd10d44bf16c7c1ed05f</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>'Requested for' Variable</sys_name>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
         <sys_update_name>sys_dictionary_x_463716_rp_draft_rp_enrollment_rule_requested_for_variable</sys_update_name>
         <sys_updated_by>zdravko.verguilov</sys_updated_by>
-        <sys_updated_on>2022-08-08 09:27:10</sys_updated_on>
+        <sys_updated_on>2022-08-10 08:29:22</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

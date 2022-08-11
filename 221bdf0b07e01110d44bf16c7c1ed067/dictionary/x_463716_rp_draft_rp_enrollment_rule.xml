@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="RP Enrollment Rule" max_length="40" name="x_463716_rp_draft_rp_enrollment_rule" sizeclass="2" type="collection">
+    <element label="RP Enrollment Rule" max_length="40" name="x_463716_rp_draft_rp_enrollment_rule" sizeclass="1" type="collection">
         <element label="Delete Draft on Submit" max_length="40" name="delete_draft_on_submit" type="boolean"/>
         <element label="Excluded Variables" max_length="4000" name="excluded_variables" reference="item_option_new" reference_qual="javascript: new x_463716_rp_draft.RPDraftUtills().getVariables(current.item, 'sys_id')" type="glide_list" use_reference_qualifier="advanced"/>
-        <element label="Respect 'Requested for'" max_length="40" name="has_req_for" type="boolean"/>
-        <element label="Item" mandatory="true" max_length="32" name="item" reference="sc_cat_item" reference_qual="active=true^sys_class_name=sc_cat_item^ORsys_class_name=sc_cat_item_producer^EQ" reference_qual_condition="active=true^sys_class_name=sc_cat_item^ORsys_class_name=sc_cat_item_producer^EQ" type="reference"/>
+        <element active="false" label="Respect 'Requested for'" max_length="40" name="has_req_for" type="boolean"/>
+        <element label="Item" mandatory="true" max_length="32" name="item" reference="sc_cat_item" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element label="Items" max_length="4000" name="items" reference="sc_cat_item" type="glide_list"/>
         <element label="Item page" max_length="32" name="item_page" reference="sp_page" type="reference"/>
+        <element label="Multiple Item Enrollment" max_length="40" name="multiple_item_enrollment" type="boolean"/>
         <element label="Redirection page" max_length="32" name="redirection_page" reference="sp_page" type="reference"/>
-        <element label="'Requested for' Variable" max_length="32" name="requested_for_variable" reference="item_option_new" reference_qual="javascript: new x_463716_rp_draft.RPDraftUtills().getVariables(current.item, 'sys_id', true)" type="reference" use_reference_qualifier="advanced"/>
+        <element active="false" label="'Requested for' Variable" max_length="32" name="requested_for_variable" reference="item_option_new" reference_qual="javascript: new x_463716_rp_draft.RPDraftUtills().getVariables(current.item, 'sys_id', true)" type="reference" use_reference_qualifier="advanced"/>
         <index name="index">
             <element name="item"/>
         </index>
