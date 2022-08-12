@@ -256,6 +256,21 @@ RPDraftUtills.prototype = {
 		return enrollmentRule.next() && enrollmentRule.getValue('excluded_variables') ?
 			enrollmentRule.getValue('excluded_variables').split(',') : [];
 	},
+
+	/**
+	* Checks if an item is already enrolled.
+	* @param {string} itemID - sys_id of the item/rp.
+	* @return {boolean} isEnrolled - true or false.
+	*/
+	isEnrolled: function(itemID) {
+		if(!itemID) return;
+
+		var enrollmentRule = new GlideRecord('x_463716_rp_draft_rp_enrollment_rule');
+		enrollmentRule.addEncodedQuery('item=' + itemID + '^ORitemsLIKE' + itemID);
+		enrollmentRule.query();
+
+		return enrollmentRule.next();
+	},
 	
 	/**
 	* Utility function, intended to replace gs.sleep() in scoped environment.
@@ -280,13 +295,13 @@ RPDraftUtills.prototype = {
         <sys_created_by>zdravko.verguilov</sys_created_by>
         <sys_created_on>2022-07-12 12:10:19</sys_created_on>
         <sys_id>5d4cdf4b07e01110d44bf16c7c1ed0cd</sys_id>
-        <sys_mod_count>85</sys_mod_count>
+        <sys_mod_count>86</sys_mod_count>
         <sys_name>RPDraftUtills</sys_name>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
         <sys_update_name>sys_script_include_5d4cdf4b07e01110d44bf16c7c1ed0cd</sys_update_name>
         <sys_updated_by>zdravko.verguilov</sys_updated_by>
-        <sys_updated_on>2022-08-10 13:51:35</sys_updated_on>
+        <sys_updated_on>2022-08-12 11:36:55</sys_updated_on>
     </sys_script_include>
 </record_update>

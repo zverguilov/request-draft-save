@@ -45,12 +45,6 @@
 			return id == e;
 		});
 	});
-	
-	if(itemVariables.length < 1) {
-		gs.addErrorMessage('This item has no variables to save!');
-		current.setAbortAction(true);
-		return;
-	}
 		
 	if(includedVariables.length < 1) {
 		gs.addErrorMessage('You have excluded all possible variables, there is no data left to enroll in the draft saves!');
@@ -64,7 +58,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>b7e1f55407c5d110d44bf16c7c1ed09b</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>Check Excluded Variables</sys_name>
         <sys_overrides/>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
@@ -72,7 +66,7 @@
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
         <sys_update_name>sys_script_b7e1f55407c5d110d44bf16c7c1ed09b</sys_update_name>
         <sys_updated_by>zdravko.verguilov</sys_updated_by>
-        <sys_updated_on>2022-08-10 14:37:14</sys_updated_on>
+        <sys_updated_on>2022-08-12 11:18:03</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

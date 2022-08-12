@@ -36,12 +36,11 @@ RPDraftUtilsClient.prototype = Object.extendsObject(global.AbstractAjaxProcessor
 
 		var variables = new x_463716_rp_draft.RPDraftUtills().getVariables(this.getParameter('sysparm_item'));
 
-		gs.info('zvg ' + variables.length)
-
 		return JSON.stringify({
 			name: item.getValue('name'),
-			hasVariables: variables.length ? true : false
-		})
+			hasVariables: variables.length ? true : false,
+			isEnrolled: new x_463716_rp_draft.RPDraftUtills().isEnrolled(this.getParameter('sysparm_item'))
+		});
 	},
 	
 	checkRequestedFor: function() {
@@ -60,13 +59,13 @@ RPDraftUtilsClient.prototype = Object.extendsObject(global.AbstractAjaxProcessor
         <sys_created_by>zdravko.verguilov</sys_created_by>
         <sys_created_on>2022-08-03 06:43:03</sys_created_on>
         <sys_id>ca74e306070d5910d44bf16c7c1ed009</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>21</sys_mod_count>
         <sys_name>RPDraftUtilsClient</sys_name>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
         <sys_update_name>sys_script_include_ca74e306070d5910d44bf16c7c1ed009</sys_update_name>
         <sys_updated_by>zdravko.verguilov</sys_updated_by>
-        <sys_updated_on>2022-08-11 12:02:12</sys_updated_on>
+        <sys_updated_on>2022-08-12 11:42:50</sys_updated_on>
     </sys_script_include>
 </record_update>
