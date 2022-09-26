@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="RP Enrollment Rule" max_length="40" name="x_463716_rp_draft_rp_enrollment_rule" sizeclass="1" type="collection">
+    <element label="RP Enrollment Rule" max_length="40" name="x_463716_rp_draft_rp_enrollment_rule" sizeclass="2" type="collection">
         <element label="Delete Draft on Submit" max_length="40" name="delete_draft_on_submit" type="boolean"/>
         <element label="Excluded Variables" max_length="4000" name="excluded_variables" reference="item_option_new" reference_qual="javascript: new x_463716_rp_draft.RPDraftUtills().getVariables(current.item, 'sys_id')" type="glide_list" use_reference_qualifier="advanced"/>
         <element active="false" label="Respect 'Requested for'" max_length="40" name="has_req_for" type="boolean"/>

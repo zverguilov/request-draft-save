@@ -9,6 +9,39 @@
         <name>RPDraftUtilsClient</name>
         <script><![CDATA[var RPDraftUtilsClient = Class.create();
 RPDraftUtilsClient.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	
+	/**
+	* Returns the class of the selected item - cat item, record producer or an order guide.
+	* @return {string} sys_class_name of the selected item.
+	*/
+	getClass: function() {
+		if(!this.getParameter('sysparm_item')) return;
+		
+		var item = new GlideRecord('sc_cat_item');
+		item.get(this.getParameter('sysparm_item'));
+
+		var itemClass = item.getValue('sys_class_name');
+
+		var dbObject = new GlideRecord('sys_db_object');
+		dbObject.addEncodedQuery('name=' + itemClass);
+		dbObject.query();
+
+		var extendsTable = '';
+
+		if(dbObject.next()) extendsTable = dbObject.getDisplayValue('super_class.name');
+
+		switch(true) {
+			case itemClass == 'sc_cat_item_guide' || extendsTable == 'sc_cat_item_guide':
+				return 'sc_cat_item_guide';
+
+			case itemClass == 'sc_cat_item_producer' || extendsTable == 'sc_cat_item_producer':
+				return 'sc_cat_item_producer';
+
+			default:
+				return 'sc_cat_item';
+		};
+	},
+
 	isRecordProducer: function() {
 		if(!this.getParameter('sysparm_item')) return;
 		
@@ -59,13 +92,13 @@ RPDraftUtilsClient.prototype = Object.extendsObject(global.AbstractAjaxProcessor
         <sys_created_by>zdravko.verguilov</sys_created_by>
         <sys_created_on>2022-08-03 06:43:03</sys_created_on>
         <sys_id>ca74e306070d5910d44bf16c7c1ed009</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_name>RPDraftUtilsClient</sys_name>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
         <sys_update_name>sys_script_include_ca74e306070d5910d44bf16c7c1ed009</sys_update_name>
         <sys_updated_by>zdravko.verguilov</sys_updated_by>
-        <sys_updated_on>2022-08-12 11:42:50</sys_updated_on>
+        <sys_updated_on>2022-09-05 14:53:54</sys_updated_on>
     </sys_script_include>
 </record_update>
