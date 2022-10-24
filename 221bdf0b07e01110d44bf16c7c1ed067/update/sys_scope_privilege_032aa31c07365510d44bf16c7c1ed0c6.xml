@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>read</operation>
+        <source_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-10-23 20:28:29</sys_created_on>
+        <sys_id>032aa31c07365510d44bf16c7c1ed0c6</sys_id>
+        <sys_name>sc_cat_item_guide_items</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>sys_scope_privilege_032aa31c07365510d44bf16c7c1ed0c6</sys_update_name>
+        <target_name>sc_cat_item_guide_items</target_name>
+        <target_scope display_value="Global">global</target_scope>
+        <target_type>sys_db_object</target_type>
+    </sys_scope_privilege>
+</record_update>

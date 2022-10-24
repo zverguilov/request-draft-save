@@ -28,9 +28,19 @@
         <rest_variables/>
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	var utils = new x_463716_rp_draft.RPDraftUtills();
 
-	new x_463716_rp_draft.RPDraftUtills().unenrollItem(current.getValue('item'));
+	if(current.getValue('item')) {
+		utils.unenrollItem(current.getValue('item'));	
+		utils.deleteDraft(current.getValue('item'), gs.getUserID());
+	}
 
+	if (current.getValue('items')) {
+		current.getValue('items').split(',').forEach(function(e) {
+			utils.unenrollItem(e);	
+			utils.deleteDraft(e, gs.getUserID());
+		});
+	}
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>zdravko.verguilov</sys_created_by>
@@ -38,15 +48,12 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>a23f8e5b07b01110d44bf16c7c1ed06e</sys_id>
-        <sys_mod_count>1</sys_mod_count>
         <sys_name>Unenroll Item</sys_name>
         <sys_overrides/>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
         <sys_update_name>sys_script_a23f8e5b07b01110d44bf16c7c1ed06e</sys_update_name>
-        <sys_updated_by>zdravko.verguilov</sys_updated_by>
-        <sys_updated_on>2022-07-25 12:16:13</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

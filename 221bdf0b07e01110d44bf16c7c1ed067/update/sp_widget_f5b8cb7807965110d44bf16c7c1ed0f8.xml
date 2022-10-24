@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function ($scope) {
+	/* widget controller */
+	var c = this;
+	c.variables = [];
+	
+	c.data.itemID = $scope.page.field.name.split('_')[1];
+
+	c.server.update().then(function(res) {
+		//Initial sync
+		$scope.data.payload.forEach(function (e) {
+			if (e.value) $scope.page.g_form.setValue(e.name, e.value);
+		})
+
+		redirectionPage = res.redirectionPage;
+		draftPage = res.draftPage;
+		//10-second draft rolling auto-save
+		c.variables = res.varList;
+		c.data.item = res.draftItem;
+
+		c.variables.forEach(function(e) {
+			$scope.$watch(function() {		
+				return $scope.page.g_form.getValue(e)
+			}, function(value) {
+				c.data.payload = c.variables.reduce(function (acc, curr) {				
+					acc.push({
+						name: curr,
+						value: $scope.page.g_form.getValue(curr)
+					});
+					return acc;
+				}, []);
+
+				c.server.update();	
+			})
+		})
+	})
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>x_463716_rp_draft_save_ogi</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>RP Draft Save Order Guide Item</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	var utils = new x_463716_rp_draft.RPDraftUtills();
+	var itemID = input && input.itemID ? input.itemID : '';
+	data.mode = utils.isOrderGuide(itemID) ? 'orderGuide' : 'item';
+	data.page = $sp.getParameter('id');
+	
+	if(itemID && (!input || !input.catItemCut && !input.remove)) {
+
+		data.draft = utils.getDraft(itemID, gs.getUserID()) || utils.createDraft(itemID, gs.getUserID())
+
+		if(!data.draft) return;
+		
+		data.payload = data.draft.getValue('payload') ? JSON.parse(data.draft.getValue('payload')) : [];
+		data.excludedVarList = utils.getExcluded(itemID);
+		//data.redirectionPage = utils.getPages(itemID).redirection_page || 'ticket';
+		data.draftItem = data.draft.getValue('item')
+		data.varList = utils.getVariables(itemID)
+			.filter(function(variable) {
+			return !data.excludedVarList.some(function(e) {
+				return variable.id == e;
+			})
+		}).map(function(e) {
+			return e.name;
+		});
+
+			if(input && input.payload && input.item) {
+				data.draft.setValue('payload', JSON.stringify(input.payload));
+				if(input.item == data.draftItem) data.draft.update();
+			}
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-09-30 10:47:53</sys_created_on>
+        <sys_id>f5b8cb7807965110d44bf16c7c1ed0f8</sys_id>
+        <sys_name>RP Draft Save Order Guide Item</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>sp_widget_f5b8cb7807965110d44bf16c7c1ed0f8</sys_update_name>
+        <template><![CDATA[<div>
+<!-- your widget template -->
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -16,13 +16,29 @@
 	//10-second draft rolling auto-save
 	c.variables = $scope.data.varList;
 	c.data.item = $scope.data.draftItem;
+	
+	c.variables.forEach(function(e) {
+		$scope.$watch(function() {		
+			return $scope.page.g_form.getValue(e)
+		}, function(value) {
+			c.data.payload = c.variables.reduce(function (acc, curr) {				
+				acc.push({
+					name: curr,
+					value: $scope.page.g_form.getValue(curr)
+				});
+				return acc;
+			}, []);
 
-	var interval = setInterval(function () {
+			c.server.update();	
+		})
+	})
+
+	/*var interval = setInterval(function () {
 
 		var page = window.location.href.split('id=')[1].split('&')[0];
 
 		if (page == draftPage) {
-			c.data.payload = c.variables.reduce(function (acc, curr) {
+			c.data.payload = c.variables.reduce(function (acc, curr) {				
 				acc.push({
 					name: curr,
 					value: $scope.page.g_form.getValue(curr)
@@ -31,7 +47,6 @@
 			}, []);
 
 			c.server.update();
-
 			return;
 		}
 
@@ -51,7 +66,7 @@
 		c.data.catItemCut = true;
 		clearInterval(interval);
 
-	}, 10000);
+	}, 10000);*/
 };]]></client_script>
         <controller_as>c</controller_as>
         <css/>
@@ -73,6 +88,7 @@
         <script><![CDATA[(function() {
 	var utils = new x_463716_rp_draft.RPDraftUtills();
 	var itemID = $sp.getParameter('sys_id');
+	data.mode = utils.isOrderGuide(itemID) ? 'orderGuide' : 'item';
 	data.item = itemID
 	data.page = $sp.getParameter('id');
 
@@ -81,10 +97,19 @@
 
 		if(!data.draft) return;
 
+		switch(data.mode) {
+			case 'orderGuide':
+				data.draftPage = utils.getPages(itemID).page || 'sc_cat_item_guide';
+				break;
+
+			case 'item':
+				data.draftPage = utils.getPages(itemID).page || 'sc_cat_item';
+				break;
+		}
+		//data.varList = utils.getVariables(itemID);
 		data.payload = data.draft.getValue('payload') ? JSON.parse(data.draft.getValue('payload')) : [];
 		data.excludedVarList = utils.getExcluded(itemID);
-		data.draftPage = data.draft.getDisplayValue('item_page') || 'sc_cat_item';
-		data.redirectionPage = data.draft.getDisplayValue('redirection_page') || 'ticket';
+		data.redirectionPage = utils.getPages(itemID).redirection_page || 'ticket';
 		data.draftItem = data.draft.getValue('item')
 		data.varList = utils.getVariables(itemID)
 			.filter(function(variable) {
@@ -94,7 +119,8 @@
 		}).map(function(e) {
 			return e.name;
 		});
-
+		//data.mrvsVarList = data.varList.mrvs;
+		
 		if(data.page == data.draftPage) {
 			if(input && input.payload && input.item) {
 				data.draft.setValue('payload', JSON.stringify(input.payload));
@@ -103,24 +129,21 @@
 		}
 	}
 
-	if(input && input.remove) {
+	/*if(input && input.remove) {
 		utils.deleteDraft('', gs.getUserID(), input.table);
 		return;
-	}
+	}*/
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>zdravko.verguilov</sys_created_by>
         <sys_created_on>2022-07-25 11:22:19</sys_created_on>
         <sys_id>84cd4e1b07b01110d44bf16c7c1ed050</sys_id>
-        <sys_mod_count>121</sys_mod_count>
         <sys_name>RP Draft Save</sys_name>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
         <sys_update_name>sp_widget_84cd4e1b07b01110d44bf16c7c1ed050</sys_update_name>
-        <sys_updated_by>zdravko.verguilov</sys_updated_by>
-        <sys_updated_on>2022-08-11 11:01:52</sys_updated_on>
         <template><![CDATA[<div>
 <!-- your widget template -->
 </div>]]></template>
