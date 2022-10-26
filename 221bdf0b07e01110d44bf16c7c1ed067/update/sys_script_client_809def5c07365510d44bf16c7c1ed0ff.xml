@@ -16,7 +16,7 @@
 	}
 
 	if(g_form.getValue('order_guide_enrollment')) {
-		g_form.showFieldMsg('items', 'Missing Order Guide items will not be enrolled due to lack of variables.');
+		g_form.showFieldMsg('items', 'Items missing from this list will not be enrolled due to lack of variables.');
 	}
 
 }]]></script>

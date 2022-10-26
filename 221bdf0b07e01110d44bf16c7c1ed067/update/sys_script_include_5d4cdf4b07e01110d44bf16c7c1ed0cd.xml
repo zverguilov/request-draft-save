@@ -19,8 +19,6 @@ RPDraftUtills.prototype = {
 	enrollItem: function (itemID, mode) {
 		if (!itemID) return;
 
-		gs.info('zvg SI mode ' + mode + ', item ' + itemID);
-
 		var option = this.getOption(itemID);
 
 		if (option) {
@@ -29,12 +27,10 @@ RPDraftUtills.prototype = {
 		}
 
 		if (!mode) {
-			gs.info('zvg no mode enroll id ' + itemID)
 			return this.createOption(itemID);
 		}
 
 		if (mode === 'og_mode') {
-			gs.info('zvg si og enroll')
 			return this.createOption(itemID, mode);
 		}
 	},
@@ -246,18 +242,22 @@ RPDraftUtills.prototype = {
 	 * Retrieves a collection of sys_id's of all variables associated with an item/rp, including the variable set ones.
 	 * @param {string} itemID - sys_id of the item/rp.
 	 * @param {string} mode - optional, determines the type of return of the function - ref. qualifier string or array of sys_id's.
-	 * @param {boolean} requestedFor - optional, if provided limits the query to only variables referencing 'sys_user' table.
+	 * @param {boolean} requestedFor - *CURRENTLY INACTIVE* optional, if provided limits the query to only variables referencing 'sys_user' table.
 	 * @return {string} encoded query - 'sys_idIN' + a comma separated list of variable sys_id's.
 	 * @return {array} aVariables - an array of variable sys_id's.
 	 */
-	getVariables: function (itemID, mode, requestedFor) {
-		if (!itemID) return;
+	getVariables: function (itemID, mode, itemList, requestedFor) {
+		if (!itemID && !itemList) return;
 
 		var aVariableSetIDs = [];
 		var aVariables = [];
+		var m2mQuery = itemID ? 'sc_cat_item=' + itemID : 'sc_cat_itemIN' + itemList;
+		if(itemID && itemList) {
+			m2mQuery = 'sc_cat_item=' + itemID + '^ORsc_cat_itemIN' + itemList
+		};
 
 		var m2mRelation = new GlideRecord('io_set_item');
-		m2mRelation.addEncodedQuery('sc_cat_item=' + itemID);
+		m2mRelation.addEncodedQuery(m2mQuery);
 		m2mRelation.query();
 
 		while (m2mRelation.next()) {
@@ -265,14 +265,17 @@ RPDraftUtills.prototype = {
 				aVariableSetIDs.push(m2mRelation.getValue('variable_set'));
 
 			if (m2mRelation.variable_set.type.toString() === 'one_to_many')
-				aVariables.push({
+				if(mode === 'sys_id') aVariables.push(m2mRelation.getValue('sys_id'))
+				if(!mode) aVariables.push({
 					name: m2mRelation.variable_set.internal_name.toString(),
-					id: m2mRelation.variable_set.sys_id.toString()
+					id: m2mRelation.getValue('variable_set')
 				});
 		}
 
-		var sVariableQuery = 'active=true^name!=rp_draft_save^cat_item=' + itemID;
-		sVariableQuery += requestedFor ? '^reference=sys_user' : '';
+		var sVariableQuery = itemID ? 'active=true^name!=rp_draft_save^cat_item=' + itemID : 'active=true^name!=rp_draft_save^cat_itemIN' + itemList;
+		if(itemID && itemList) {
+			sVariableQuery = 'active=true^name!=rp_draft_save^cat_item=' + itemID + '^ORcat_itemIN' + itemList;
+		};
 		sVariableQuery += aVariableSetIDs ? '^ORvariable_set.sys_idIN' + aVariableSetIDs.join(',') : '';
 
 		var variable = new GlideRecord('item_option_new');

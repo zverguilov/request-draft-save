@@ -11,7 +11,7 @@
         <name>Show page info</name>
         <order/>
         <script><![CDATA[function onLoad() {
-	g_form.setVisible('redirection_page', false);
+	//g_form.setVisible('redirection_page', false);
 	
 	g_form.showFieldMsg('item_page', 'Optional, in case the default catalog item page is changed. Defaults to "sc_cat_item" if no value is provided ("sc_cat_item_guide" for order guides).');
 	g_form.showFieldMsg('redirection_page', 'Optional, for record producers only. Use in case the default redirection page upon submission is changed. Defaults to "ticket" if no value is provided.');   

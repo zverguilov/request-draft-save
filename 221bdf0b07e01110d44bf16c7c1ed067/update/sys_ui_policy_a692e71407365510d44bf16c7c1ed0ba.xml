@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
     <sys_ui_policy action="INSERT_OR_UPDATE">
         <active>true</active>
-        <conditions table="x_463716_rp_draft_rp_enrollment_rule">multiple_item_enrollment=true^order_guide_enrollment=true^EQ<item endquery="false" field="multiple_item_enrollment" goto="false" newquery="false" operator="=" or="false" value="true"/>
-            <item endquery="false" field="order_guide_enrollment" goto="false" newquery="false" operator="=" or="false" value="true"/>
+        <conditions table="x_463716_rp_draft_rp_enrollment_rule">multiple_item_enrollment=true^order_guide_enrollment=false^EQ<item endquery="false" field="multiple_item_enrollment" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="false" field="order_guide_enrollment" goto="false" newquery="false" operator="=" or="false" value="false"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </conditions>
         <description/>
@@ -22,14 +22,14 @@
 	g_form.setVisible('redirection_page', true);
 }]]></script_true>
         <set_values/>
-        <short_description>OG Enrollment</short_description>
+        <short_description>Multiple Enrollment</short_description>
         <sys_class_name>sys_ui_policy</sys_class_name>
         <sys_created_by>zdravko.verguilov</sys_created_by>
         <sys_created_on>2022-10-23 19:55:24</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>a692e71407365510d44bf16c7c1ed0ba</sys_id>
-        <sys_name>OG Enrollment</sys_name>
+        <sys_name>Multiple Enrollment</sys_name>
         <sys_overrides/>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>

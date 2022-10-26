@@ -2,19 +2,19 @@
     <sys_ui_policy_action action="INSERT_OR_UPDATE">
         <cleared>false</cleared>
         <disabled>true</disabled>
-        <field>items</field>
-        <mandatory>false</mandatory>
+        <field>multiple_item_enrollment</field>
+        <mandatory>ignore</mandatory>
         <sys_class_name>sys_ui_policy_action</sys_class_name>
         <sys_created_by>zdravko.verguilov</sys_created_by>
-        <sys_created_on>2022-10-23 19:55:24</sys_created_on>
-        <sys_id>a292e71407365510d44bf16c7c1ed0c0</sys_id>
-        <sys_name>items</sys_name>
+        <sys_created_on>2022-10-26 13:52:59</sys_created_on>
+        <sys_id>486ced1507761110d44bf16c7c1ed00e</sys_id>
+        <sys_name>multiple_item_enrollment</sys_name>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
-        <sys_update_name>sys_ui_policy_action_a292e71407365510d44bf16c7c1ed0c0</sys_update_name>
+        <sys_update_name>sys_ui_policy_action_486ced1507761110d44bf16c7c1ed00e</sys_update_name>
         <table>x_463716_rp_draft_rp_enrollment_rule</table>
-        <ui_policy display_value="OG Enrollment">a692e71407365510d44bf16c7c1ed0ba</ui_policy>
-        <visible>true</visible>
+        <ui_policy display_value="OG Enrollment">3c4ba1d107761110d44bf16c7c1ed02d</ui_policy>
+        <visible>ignore</visible>
     </sys_ui_policy_action>
 </record_update>

@@ -106,7 +106,6 @@
 				data.draftPage = utils.getPages(itemID).page || 'sc_cat_item';
 				break;
 		}
-		//data.varList = utils.getVariables(itemID);
 		data.payload = data.draft.getValue('payload') ? JSON.parse(data.draft.getValue('payload')) : [];
 		data.excludedVarList = utils.getExcluded(itemID);
 		data.redirectionPage = utils.getPages(itemID).redirection_page || 'ticket';
@@ -119,7 +118,6 @@
 		}).map(function(e) {
 			return e.name;
 		});
-		//data.mrvsVarList = data.varList.mrvs;
 		
 		if(data.page == data.draftPage) {
 			if(input && input.payload && input.item) {

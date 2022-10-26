@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="DELETE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>order_guide_enrollment</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-10-23 20:04:27</sys_created_on>
+        <sys_id>93946f9407365510d44bf16c7c1ed0ec</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>order_guide_enrollment</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>sys_ui_policy_action_93946f9407365510d44bf16c7c1ed0ec</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-10-23 20:04:27</sys_updated_on>
+        <table>x_463716_rp_draft_rp_enrollment_rule</table>
+        <ui_policy display_value="OG Enrollment">a692e71407365510d44bf16c7c1ed0ba</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</application>
+        <file_path/>
+        <instance_id>1d64aec2db06f3082f68c597059619f0</instance_id>
+        <instance_name>dev87737</instance_name>
+        <name>sys_ui_policy_action_93946f9407365510d44bf16c7c1ed0ec</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action"><sys_ui_policy_action action="INSERT_OR_UPDATE"><cleared>false</cleared><disabled>true</disabled><field>order_guide_enrollment</field><mandatory>ignore</mandatory><sys_class_name>sys_ui_policy_action</sys_class_name><sys_created_by>zdravko.verguilov</sys_created_by><sys_created_on>2022-10-23 20:04:27</sys_created_on><sys_id>93946f9407365510d44bf16c7c1ed0ec</sys_id><sys_mod_count>0</sys_mod_count><sys_name>order_guide_enrollment</sys_name><sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package><sys_policy/><sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope><sys_update_name>sys_ui_policy_action_93946f9407365510d44bf16c7c1ed0ec</sys_update_name><sys_updated_by>zdravko.verguilov</sys_updated_by><sys_updated_on>2022-10-23 20:04:27</sys_updated_on><table>x_463716_rp_draft_rp_enrollment_rule</table><ui_policy display_value="OG Enrollment">a692e71407365510d44bf16c7c1ed0ba</ui_policy><visible>true</visible></sys_ui_policy_action></record_update>]]></payload>
+        <payload_hash>-35311765</payload_hash>
+        <record_name>order_guide_enrollment</record_name>
+        <reverted_from/>
+        <source>a211e53f07c1dd10d44bf16c7c1ed0e3</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-10-23 20:04:27</sys_created_on>
+        <sys_id>03a42f9407365510d44bf16c7c1ed02c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>184067256890000001</sys_recorded_at>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-10-23 20:04:27</sys_updated_on>
+        <type>UI Policy Action</type>
+        <update_guid>0ba42f9491365510cdd810836cafc92b</update_guid>
+        <update_guid_history>0ba42f9491365510cdd810836cafc92b:-35311765</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-10-26 13:37:07</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy_action">sys_ui_policy_action</sys_db_object>
+        <sys_id>13443313c9374ee08adc981aea182100</sys_id>
+        <sys_metadata>93946f9407365510d44bf16c7c1ed0ec</sys_metadata>
+        <sys_name>order_guide_enrollment</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_parent display_value="Multiple Enrollment">a692e71407365510d44bf16c7c1ed0ba</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_scope_delete display_value="">501e30fe705f4dd6a4ecf3b00ec1ad64</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_action_93946f9407365510d44bf16c7c1ed0ec</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_action_93946f9407365510d44bf16c7c1ed0ec">03a42f9407365510d44bf16c7c1ed02c</sys_update_version>
+    </sys_metadata_delete>
+</record_update>

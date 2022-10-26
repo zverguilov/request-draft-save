@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
     <sys_ui_policy action="INSERT_OR_UPDATE">
         <active>true</active>
-        <conditions table="x_463716_rp_draft_rp_enrollment_rule">multiple_item_enrollment=true^order_guide_enrollment=false^EQ<item endquery="false" field="multiple_item_enrollment" goto="false" newquery="false" operator="=" or="false" value="true"/>
-            <item endquery="false" field="order_guide_enrollment" goto="false" newquery="false" operator="=" or="false" value="false"/>
+        <conditions table="x_463716_rp_draft_rp_enrollment_rule">multiple_item_enrollment=true^EQ<item endquery="false" field="multiple_item_enrollment" goto="false" newquery="false" operator="=" or="false" value="true"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </conditions>
         <description/>
@@ -11,10 +10,10 @@
         <isolate_script>true</isolate_script>
         <model_id/>
         <model_table/>
-        <on_load>true</on_load>
+        <on_load>false</on_load>
         <order>100</order>
-        <reverse_if_false>false</reverse_if_false>
-        <run_scripts>true</run_scripts>
+        <reverse_if_false>true</reverse_if_false>
+        <run_scripts>false</run_scripts>
         <script_false><![CDATA[function onCondition() {
 	g_form.setVisible('redirection_page', false);
 }]]></script_false>

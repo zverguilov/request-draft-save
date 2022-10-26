@@ -15,6 +15,6 @@
         <sys_update_name>sys_ui_policy_action_ba902f9007365510d44bf16c7c1ed0cd</sys_update_name>
         <table>x_463716_rp_draft_rp_enrollment_rule</table>
         <ui_policy display_value="Hide OG Enrollment">5520279007365510d44bf16c7c1ed036</ui_policy>
-        <visible>false</visible>
+        <visible>true</visible>
     </sys_ui_policy_action>
 </record_update>
