@@ -30,7 +30,7 @@ RPDraftUtills.prototype = {
 			return this.createOption(itemID);
 		}
 
-		if (mode === 'og_mode') {
+		if (mode === 'item_mode') {
 			return this.createOption(itemID, mode);
 		}
 	},
@@ -92,10 +92,8 @@ RPDraftUtills.prototype = {
 	 */
 	createOption: function (itemID, mode) {
 
-		var name = mode && mode === 'og_mode' ? 'rpds_' + itemID : 'rp_draft_save';
+		var name = mode && mode === 'item_mode' ? 'rpds_' + itemID : 'rp_draft_save';
 		var qtext = name;
-
-		gs.info('zvg create option mode ' + mode + ', name ' + name + ', qtext ' + qtext)
 
 		var option = new GlideRecord('item_option_new');
 		option.initialize();
@@ -129,7 +127,7 @@ RPDraftUtills.prototype = {
 	 */
 	getWidget: function (mode) {
 
-		var query = mode && mode === 'og_mode' ? 'id=x_463716_rp_draft_save_ogi' : 'id=x_463716_rp_draft_save'
+		var query = mode && mode === 'item_mode' ? 'id=x_463716_rp_draft_save_ogi' : 'id=x_463716_rp_draft_save'
 
 		var widget = new GlideRecord('sp_widget');
 		widget.addEncodedQuery(query);
@@ -218,6 +216,16 @@ RPDraftUtills.prototype = {
 		while(draft.next()) {
 			draft.deleteRecord();
 		}
+	},
+
+	deleteUponSubmit: function(itemID) {
+		if(!itemID) return;
+
+		var enrollment = new GlideRecord('x_463716_rp_draft_rp_enrollment_rule');
+		enrollment.addEncodedQuery('item=' + itemID + '^ORitemsLIKE' + itemID);
+		enrollment.query();
+
+		return enrollment.next() && enrollment.getValue('delete_draft_on_submit') == true ? true : false;
 	},
 
 	getOGItems: function (orderGuideID) {

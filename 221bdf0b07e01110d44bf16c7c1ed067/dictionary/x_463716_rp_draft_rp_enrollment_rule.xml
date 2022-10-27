@@ -8,16 +8,12 @@
         <element label="Item page" max_length="32" name="item_page" reference="sp_page" type="reference"/>
         <element label="Multiple Item Enrollment" max_length="40" name="multiple_item_enrollment" type="boolean"/>
         <element label="Order Guide Enrollment" max_length="40" name="order_guide_enrollment" type="boolean"/>
-        <element label="Redirection page" max_length="32" name="redirection_page" reference="sp_page" type="reference"/>
         <element active="false" label="'Requested for' Variable" max_length="32" name="requested_for_variable" reference="item_option_new" reference_qual="javascript: new x_463716_rp_draft.RPDraftUtills().getVariables(current.item, 'sys_id', true)" type="reference" use_reference_qualifier="advanced"/>
         <index name="index">
             <element name="item"/>
         </index>
         <index name="index2">
             <element name="item_page"/>
-        </index>
-        <index name="index3">
-            <element name="redirection_page"/>
         </index>
         <index name="index4">
             <element name="requested_for_variable"/>

@@ -34,7 +34,7 @@
 	new x_463716_rp_draft.RPDraftUtills().enrollItem(current.getValue('item'));
 	
 	current.getValue('items').split(',').forEach(function(e) {
-		new x_463716_rp_draft.RPDraftUtills().enrollItem(e, 'og_mode');
+		new x_463716_rp_draft.RPDraftUtills().enrollItem(e, 'item_mode');
 	});
 
 })(current, previous);]]></script>

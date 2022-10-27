@@ -33,7 +33,7 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
 	current.getValue('items').split(',').forEach(function(e) {
-		new x_463716_rp_draft.RPDraftUtills().enrollItem(e);
+		new x_463716_rp_draft.RPDraftUtills().enrollItem(e, 'item_mode');
 	}, this);
 	
 })(current, previous);]]></script>

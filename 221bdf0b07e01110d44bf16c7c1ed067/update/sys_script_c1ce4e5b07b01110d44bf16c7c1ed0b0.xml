@@ -32,7 +32,7 @@
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
-	new x_463716_rp_draft.RPDraftUtills().enrollItem(current.getValue('item'));
+	new x_463716_rp_draft.RPDraftUtills().enrollItem(current.getValue('item'), 'item_mode');
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>

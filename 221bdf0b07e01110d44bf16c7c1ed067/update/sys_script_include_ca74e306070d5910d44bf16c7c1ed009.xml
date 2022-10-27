@@ -9,14 +9,14 @@
         <name>RPDraftUtilsClient</name>
         <script><![CDATA[var RPDraftUtilsClient = Class.create();
 RPDraftUtilsClient.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
-	
+
 	/**
 	* Returns the class of the selected item - cat item, record producer or an order guide.
 	* @return {string} sys_class_name of the selected item.
 	*/
 	getClass: function() {
 		if(!this.getParameter('sysparm_item')) return;
-		
+
 		var item = new GlideRecord('sc_cat_item');
 		item.get(this.getParameter('sysparm_item'));
 
@@ -41,16 +41,16 @@ RPDraftUtilsClient.prototype = Object.extendsObject(global.AbstractAjaxProcessor
 				return 'sc_cat_item';
 		}
 	},
-	
+
 	getOGItems: function() {
 		if(!this.getParameter('sysparm_og')) return;
-		
+
 		return new x_463716_rp_draft.RPDraftUtills().getOGItems(this.getParameter('sysparm_og'));
 	},
 
 	isRecordProducer: function() {
 		if(!this.getParameter('sysparm_item')) return;
-		
+
 		var item = new GlideRecord('sc_cat_item');
 		item.get(this.getParameter('sysparm_item'));
 
@@ -63,36 +63,37 @@ RPDraftUtilsClient.prototype = Object.extendsObject(global.AbstractAjaxProcessor
 		var extendsTable = '';
 
 		if(dbObject.next()) extendsTable = dbObject.getDisplayValue('super_class.name');
-		
+
 		return itemClass == 'sc_cat_item_producer' || extendsTable == 'sc_cat_item_producer';
 	},
 
 	hasVariables: function() {
-		if(!this.getParameter('sysparm_item')) return;
+		if(!this.getParameter('sysparm_items')) return;
 
-		var item = new GlideRecord('sc_cat_item');
-		item.get(this.getParameter('sysparm_item'));
+		return JSON.stringify(this.getParameter('sysparm_items').split(',').map(function(e) {
+			var item = new GlideRecord('sc_cat_item');
+			item.get(e);
 
-		var variables = new x_463716_rp_draft.RPDraftUtills().getVariables(this.getParameter('sysparm_item'));
-
-		return JSON.stringify({
-			name: item.getValue('name'),
-			hasVariables: variables.length ? true : false,
-			isEnrolled: new x_463716_rp_draft.RPDraftUtills().isEnrolled(this.getParameter('sysparm_item'))
-		});
+			return {
+				name: item.getValue('name'),
+				id: e,
+				hasVariables: new x_463716_rp_draft.RPDraftUtills().getVariables(e).length ? true : false,
+				isEnrolled: new x_463716_rp_draft.RPDraftUtills().isEnrolled(e)
+			};
+		}, this));
 	},
-	
+
 	checkRequestedFor: function() {
 		if(!this.getParameter('sysparm_item')) return;
-		
+
 		var variable = new GlideRecord('item_option_new');
 		variable.addEncodedQuery('active=true^cat_item=' + this.getParameter('sysparm_item') + '^type=31');
 		variable.query();
-		
+
 		return variable.next();
 	},
-	
-    type: 'RPDraftUtilsClient'
+
+	type: 'RPDraftUtilsClient'
 });]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>zdravko.verguilov</sys_created_by>

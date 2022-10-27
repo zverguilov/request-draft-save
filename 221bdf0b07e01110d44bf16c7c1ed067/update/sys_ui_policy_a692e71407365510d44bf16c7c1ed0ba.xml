@@ -12,7 +12,7 @@
         <model_id/>
         <model_table/>
         <on_load>true</on_load>
-        <order>100</order>
+        <order>300</order>
         <reverse_if_false>true</reverse_if_false>
         <run_scripts>false</run_scripts>
         <script_false><![CDATA[function onCondition() {

@@ -8,12 +8,10 @@
 	var redirectionPage = $scope.data.redirectionPage;
 	var draftPage = $scope.data.draftPage;
 
-	//Initial sync
 	$scope.data.payload.forEach(function (e) {
 		if (e.value) $scope.page.g_form.setValue(e.name, e.value);
 	})
 
-	//10-second draft rolling auto-save
 	c.variables = $scope.data.varList;
 	c.data.item = $scope.data.draftItem;
 	
@@ -32,41 +30,11 @@
 			c.server.update();	
 		})
 	})
-
-	/*var interval = setInterval(function () {
-
-		var page = window.location.href.split('id=')[1].split('&')[0];
-
-		if (page == draftPage) {
-			c.data.payload = c.variables.reduce(function (acc, curr) {				
-				acc.push({
-					name: curr,
-					value: $scope.page.g_form.getValue(curr)
-				});
-				return acc;
-			}, []);
-
-			c.server.update();
-			return;
-		}
-
-		var table = window.location.href.split('table=')[1] ?
-			window.location.href.split('table=')[1].split('&')[0] : ''
-
-		if (table && page == redirectionPage) {
-			c.data.remove = true;
-			c.data.table = table;
-			c.server.update().then(function (res) {
-				clearInterval(interval);
-			})
-
-			return;
-		}
-
-		c.data.catItemCut = true;
-		clearInterval(interval);
-
-	}, 10000);*/
+	
+	$rootScope.$on('$sp.service_catalog.cart.submitted', function(e) {
+		c.data.deleteEvent = true;
+		c.server.update();
+	})	
 };]]></client_script>
         <controller_as>c</controller_as>
         <css/>
@@ -81,7 +49,7 @@
         <link><![CDATA[function link(scope, element, attrs, controller) {
   
 }]]></link>
-        <name>RP Draft Save</name>
+        <name>RP Draft Save Order Guide</name>
         <option_schema/>
         <public>false</public>
         <roles/>
@@ -125,19 +93,18 @@
 				if(input.item == data.draftItem) data.draft.update();
 			}
 		}
-	}
-
-	/*if(input && input.remove) {
-		utils.deleteDraft('', gs.getUserID(), input.table);
-		return;
-	}*/
+		
+		if(input && input.deleteEvent) {
+			if(utils.deleteUponSubmit(itemID)) data.draft.deleteRecord();
+		}
+	}	
 })();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>zdravko.verguilov</sys_created_by>
         <sys_created_on>2022-07-25 11:22:19</sys_created_on>
         <sys_id>84cd4e1b07b01110d44bf16c7c1ed050</sys_id>
-        <sys_name>RP Draft Save</sys_name>
+        <sys_name>RP Draft Save Order Guide</sys_name>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
