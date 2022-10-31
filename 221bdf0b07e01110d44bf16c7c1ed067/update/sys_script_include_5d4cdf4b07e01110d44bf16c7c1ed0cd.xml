@@ -280,9 +280,9 @@ RPDraftUtills.prototype = {
 				});
 		}
 
-		var sVariableQuery = itemID ? 'active=true^name!=rp_draft_save^cat_item=' + itemID : 'active=true^name!=rp_draft_save^cat_itemIN' + itemList;
+		var sVariableQuery = itemID ? 'active=true^name!=rp_draft_save^nameNOT LIKErpds^cat_item=' + itemID : 'active=true^name!=rp_draft_save^nameNOT LIKErpds^cat_item=' + itemList;
 		if(itemID && itemList) {
-			sVariableQuery = 'active=true^name!=rp_draft_save^cat_item=' + itemID + '^ORcat_itemIN' + itemList;
+			sVariableQuery = 'active=true^name!=rp_draft_save^nameNOT LIKErpds^cat_item=' + itemID + '^ORcat_itemIN' + itemList;
 		};
 		sVariableQuery += aVariableSetIDs ? '^ORvariable_set.sys_idIN' + aVariableSetIDs.join(',') : '';
 

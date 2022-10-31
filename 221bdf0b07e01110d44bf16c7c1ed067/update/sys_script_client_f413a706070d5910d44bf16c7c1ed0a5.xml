@@ -29,7 +29,7 @@
 
 	g_form.setValue('order_guide_enrollment', false);
 	//g_form.setValue('multiple_item_enrollment', false);
-	g_form.clearValue('item_page');
+	//g_form.clearValue('item_page');
 
 	var ga = new GlideAjax('RPDraftUtilsClient');
 	ga.addParam('sysparm_name', 'getClass');
