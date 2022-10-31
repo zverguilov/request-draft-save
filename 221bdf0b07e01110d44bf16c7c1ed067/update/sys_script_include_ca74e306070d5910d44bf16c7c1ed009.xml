@@ -70,6 +70,8 @@ RPDraftUtilsClient.prototype = Object.extendsObject(global.AbstractAjaxProcessor
 	hasVariables: function() {
 		if(!this.getParameter('sysparm_items')) return;
 
+		var currentRuleID = this.getParameter('sysparm_current_rule');
+
 		return JSON.stringify(this.getParameter('sysparm_items').split(',').map(function(e) {
 			var item = new GlideRecord('sc_cat_item');
 			item.get(e);
@@ -78,7 +80,7 @@ RPDraftUtilsClient.prototype = Object.extendsObject(global.AbstractAjaxProcessor
 				name: item.getValue('name'),
 				id: e,
 				hasVariables: new x_463716_rp_draft.RPDraftUtills().getVariables(e).length ? true : false,
-				isEnrolled: new x_463716_rp_draft.RPDraftUtills().isEnrolled(e)
+				isEnrolled: new x_463716_rp_draft.RPDraftUtills().isEnrolled(e, currentRuleID)
 			};
 		}, this));
 	},

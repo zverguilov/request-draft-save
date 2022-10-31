@@ -13,19 +13,22 @@
         <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
 	if (newValue === '') {
 		g_form.setValue('order_guide_enrollment', false);
-		g_form.setValue('multiple_item_enrollment', false);
-		g_form.setReadOnly('multiple_item_enrollment', false);
 		g_form.clearValue('excluded_variables');
 		g_form.clearValue('item_page');
+		if(g_form.isNewRecord()) {
+			g_form.setValue('multiple_item_enrollment', false);
+			g_form.setReadOnly('multiple_item_enrollment', false);
+			g_form.clearValue('items');
+		}
 		return;
 	}
-	
+
 	g_form.setReadOnly('multiple_item_enrollment', false);
-	
+
 	if(!g_form.isNewRecord()) g_form.setReadOnly('multiple_item_enrollment', true);
 
 	g_form.setValue('order_guide_enrollment', false);
-	g_form.setValue('multiple_item_enrollment', false);
+	//g_form.setValue('multiple_item_enrollment', false);
 	g_form.clearValue('item_page');
 
 	var ga = new GlideAjax('RPDraftUtilsClient');
@@ -38,6 +41,7 @@
 		switch(response) {
 			case 'sc_cat_item_producer':
 				g_form.setValue('order_guide_enrollment', false);
+				g_form.setValue('multiple_item_enrollment', false);
 				break;
 
 			case 'sc_cat_item_guide':
@@ -57,11 +61,12 @@
 
 			default:
 				g_form.setValue('order_guide_enrollment', false);
+				g_form.setValue('multiple_item_enrollment', false);
 		}
 	}
 
 	function itemsResponse(response) {
-		g_form.setValue('items', response);
+		if(g_form.getValue('item')) g_form.setValue('items', response);
 	}
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>

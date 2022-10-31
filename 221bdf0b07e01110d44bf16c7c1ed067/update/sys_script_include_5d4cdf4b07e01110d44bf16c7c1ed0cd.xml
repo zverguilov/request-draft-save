@@ -340,11 +340,14 @@ RPDraftUtills.prototype = {
 	 * @param {string} itemID - sys_id of the item/rp.
 	 * @return {boolean} isEnrolled - true or false.
 	 */
-	isEnrolled: function (itemID) {
+	isEnrolled: function (itemID, ruleID) {
 		if (!itemID) return;
 
+		var query = 'item=' + itemID + '^ORitemsLIKE' + itemID;
+		query += ruleID ? '^sys_id!=' + ruleID : '';
+
 		var enrollmentRule = new GlideRecord('x_463716_rp_draft_rp_enrollment_rule');
-		enrollmentRule.addEncodedQuery('item=' + itemID + '^ORitemsLIKE' + itemID);
+		enrollmentRule.addEncodedQuery(query);
 		enrollmentRule.query();
 
 		return enrollmentRule.next();

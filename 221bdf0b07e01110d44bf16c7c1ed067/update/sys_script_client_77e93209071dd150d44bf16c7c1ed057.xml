@@ -17,22 +17,24 @@
 
 	var utils = new GlideAjax('RPDraftUtilsClient');
 	utils.addParam('sysparm_name', 'hasVariables');
-	utils.addParam('sysparm_item', newValue);
+	utils.addParam('sysparm_items', newValue);
 	utils.getXMLAnswer(ajaxResponse);
 
 	function ajaxResponse(response) {
 		var resObject = JSON.parse(response);
-		
-		if(resObject.hasVariables == false) {
-			g_form.addErrorMessage('Item "' + resObject.name + '" can\'t be enrolled as it has no variables.');
+
+		if(resObject[0].hasVariables == false) {
+			g_form.addErrorMessage('Item "' + resObject[0].name + '" can\'t be enrolled as it has no variables.');
 			g_form.setValue('item', '');
+			g_form.clearValue('items');
 		}
 
-		if(resObject.isEnrolled) {
-			g_form.addErrorMessage('Item "' + resObject.name + '" is already enrolled!');
-			g_form.setValue('item', '');
+		if(resObject[0].isEnrolled) {
+			g_form.addErrorMessage('Item "' + resObject[0].name + '" is already enrolled!');
+			g_form.clearValue('item');
+			g_form.clearValue('items');
 		} 
-	}   
+	}
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>zdravko.verguilov</sys_created_by>

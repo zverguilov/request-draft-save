@@ -11,6 +11,11 @@
 		c.server.update();
 	})
 	
+	$rootScope.$on('$sp.sc_order_guide.submitted', function(e) {
+		c.data.deleteEvent = true;
+		c.server.update();
+	})
+	
 	c.data.itemID = $scope.page.field.name.split('_')[1];
 
 	c.server.update().then(function(res) {

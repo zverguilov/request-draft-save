@@ -15,36 +15,44 @@
 		return;
 	}
 
-	/*var newItem = newValue.split(',').filter(function(e) {
-		return !oldValue.split(',').some(function(i) {
-			return i == e;
-		});
-	});
-
-	newItem = newItem.reverse();*/
-
 	var utils = new GlideAjax('RPDraftUtilsClient');
 	utils.addParam('sysparm_name', 'hasVariables');
 	utils.addParam('sysparm_items', newValue);
+	utils.addParam('sysparm_current_rule', g_form.getUniqueValue());
 	utils.getXMLAnswer(ajaxResponse);
 
 	function ajaxResponse(response) {
-		var responseArray = JSON.parse(response).forEach(function(e, i) {
-			if(e.hasVariables == false) {
-				g_form.addErrorMessage('Item "' + e.name + '" can\'t be enrolled as it has no variables.');
-				g_form.setValue('items', newValue.split(',').filter(function(x) {
-					return x != e.id;
-				}));
-			} 
+		if(!g_scratchpad.itemsLock) {
+			var responseArray = JSON.parse(response).forEach(function(e, i) {
+				if(e.hasVariables == false) {
+					g_form.addErrorMessage('Item "' + e.name + '" can\'t be enrolled as it has no variables.');
+					g_form.setValue('items', newValue.split(',').filter(function(x) {
+						return x != e.id;
+					}));
+				} 
 
-			if(e.isEnrolled) {
-				g_form.addErrorMessage('Item "' + e.name + '" is already enrolled!');
-				g_form.setValue('items', newValue.split(',').filter(function(x) {
-					return x != e.id;
-				}));
-			}
+				if(e.isEnrolled) {
+					g_form.addErrorMessage('Item "' + e.name + '" is already enrolled!');
+					g_form.setValue('items', newValue.split(',').filter(function(x) {
+						return x != e.id;
+					}));
+				}
+			});
+		}
+
+		var allEnrolled = JSON.parse(response).every(function(e) {
+			return e.isEnrolled;
 		});
-		}   
+		
+		var allWithoutVariables = JSON.parse(response).every(function(e) {
+			return !e.hasVariables;
+		});
+
+		if(allEnrolled || allWithoutVariables) {
+			g_scratchpad.itemsLock = true;
+			g_form.clearValue('items');
+		} 
+	}   
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>zdravko.verguilov</sys_created_by>
