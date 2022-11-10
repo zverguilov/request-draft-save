@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>multiple_item_enrollment</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Clear Variables 2</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+   g_form.clearValue('excluded_variables');
+   
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-08-12 13:49:52</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>342c9385079dd150d44bf16c7c1ed00c</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Clear Variables 2</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>sys_script_client_342c9385079dd150d44bf16c7c1ed00c</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-10-26 13:07:56</sys_updated_on>
+        <table>x_463716_rp_draft_rp_enrollment_rule</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</application>
+        <file_path/>
+        <instance_id>1d64aec2db06f3082f68c597059619f0</instance_id>
+        <instance_name>dev87737</instance_name>
+        <name>sys_script_client_342c9385079dd150d44bf16c7c1ed00c</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;multiple_item_enrollment&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Clear Variables 2&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+   g_form.clearValue('excluded_variables');
+   
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;zdravko.verguilov&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-08-12 13:49:52&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;342c9385079dd150d44bf16c7c1ed00c&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;Clear Variables 2&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="RP Draft" source="x_463716_rp_draft"&gt;221bdf0b07e01110d44bf16c7c1ed067&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="RP Draft"&gt;221bdf0b07e01110d44bf16c7c1ed067&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_342c9385079dd150d44bf16c7c1ed00c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;zdravko.verguilov&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-10-26 13:07:56&lt;/sys_updated_on&gt;&lt;table&gt;x_463716_rp_draft_rp_enrollment_rule&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1727178673</payload_hash>
+        <record_name>Clear Variables 2</record_name>
+        <reverted_from/>
+        <source>a211e53f07c1dd10d44bf16c7c1ed0e3</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-10-26 13:07:56</sys_created_on>
+        <sys_id>ba12659907361110d44bf16c7c1ed00c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>184146816050000001</sys_recorded_at>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-10-26 13:07:56</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>32126599fd3611108708dce11252c90c</update_guid>
+        <update_guid_history>32126599fd3611108708dce11252c90c:-1727178673,e0f6a81120721110754a77c9095d1f55:-1150706302,d6e62051b7721110433ee628edb14505:-1727178673,13e057b413b51110bc88ab8437192e1d:0,89426b0d5e9dd15050c8d624fee5aa3f:408690862,ca7c1f45279dd1506ec3c1d3f03c048b:-1150706302</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-10-26 13:30:32</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>0bc231918ba04a088e6b7c7da340f481</sys_id>
+        <sys_metadata>342c9385079dd150d44bf16c7c1ed00c</sys_metadata>
+        <sys_name>Clear Variables 2</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_parent display_value="RP Enrollment Rule">45db5b4b07e01110d44bf16c7c1ed0ca</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_scope_delete display_value="">501e30fe705f4dd6a4ecf3b00ec1ad64</sys_scope_delete>
+        <sys_update_name>sys_script_client_342c9385079dd150d44bf16c7c1ed00c</sys_update_name>
+        <sys_update_version display_value="sys_script_client_342c9385079dd150d44bf16c7c1ed00c">ba12659907361110d44bf16c7c1ed00c</sys_update_version>
+    </sys_metadata_delete>
+</record_update>

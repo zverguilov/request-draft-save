@@ -8,24 +8,65 @@
         <global>true</global>
         <isolate_script>true</isolate_script>
         <messages/>
-        <name>Show redirection page</name>
+        <name>Handle RPs and OGs</name>
         <order/>
         <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
-	if (isLoading || newValue === '') {
+	if (newValue === '') {
+		g_form.setValue('order_guide_enrollment', false);
+		g_form.clearValue('excluded_variables');
+		g_form.clearValue('item_page');
+		if(g_form.isNewRecord()) {
+			g_form.setValue('multiple_item_enrollment', false);
+			g_form.setReadOnly('multiple_item_enrollment', false);
+			g_form.clearValue('items');
+		}
 		return;
 	}
 
+	g_form.setReadOnly('multiple_item_enrollment', false);
+
+	if(!g_form.isNewRecord()) g_form.setReadOnly('multiple_item_enrollment', true);
+
+	g_form.setValue('order_guide_enrollment', false);
+	//g_form.setValue('multiple_item_enrollment', false);
+	//g_form.clearValue('item_page');
+
 	var ga = new GlideAjax('RPDraftUtilsClient');
-	ga.addParam('sysparm_name', 'checkItemClass');
+	ga.addParam('sysparm_name', 'getClass');
 	ga.addParam('sysparm_item', newValue);
-	ga.getXMLAnswer(ajaxResponse);
-	
-	function ajaxResponse(response) {
-		if(response == 'sc_cat_item_producer') {
-			g_form.setVisible('redirection_page', true);
-		} else {
-			g_form.setVisible('redirection_page', false);
+	ga.getXMLAnswer(classResponse);
+
+	function classResponse(response) {
+
+		switch(response) {
+			case 'sc_cat_item_producer':
+				g_form.setValue('order_guide_enrollment', false);
+				g_form.setValue('multiple_item_enrollment', false);
+				break;
+
+			case 'sc_cat_item_guide':
+				g_form.setValue('order_guide_enrollment', true);
+				g_form.setValue('multiple_item_enrollment', true);
+				g_form.setReadOnly('multiple_item_enrollment', true);
+				g_form.setMandatory('items', false);
+
+				if(g_form.isNewRecord()) {
+					var ga = new GlideAjax('RPDraftUtilsClient');
+					ga.addParam('sysparm_name', 'getOGItems');
+					ga.addParam('sysparm_og', newValue);
+					ga.getXMLAnswer(itemsResponse);
+				}
+
+				break;
+
+			default:
+				g_form.setValue('order_guide_enrollment', false);
+				g_form.setValue('multiple_item_enrollment', false);
 		}
+	}
+
+	function itemsResponse(response) {
+		if(g_form.getValue('item')) g_form.setValue('items', response);
 	}
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
@@ -34,15 +75,12 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f413a706070d5910d44bf16c7c1ed0a5</sys_id>
-        <sys_mod_count>8</sys_mod_count>
-        <sys_name>Show redirection page</sys_name>
+        <sys_name>Handle RPs and OGs</sys_name>
         <sys_overrides/>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
         <sys_update_name>sys_script_client_f413a706070d5910d44bf16c7c1ed0a5</sys_update_name>
-        <sys_updated_by>zdravko.verguilov</sys_updated_by>
-        <sys_updated_on>2022-08-03 07:15:13</sys_updated_on>
         <table>x_463716_rp_draft_rp_enrollment_rule</table>
         <type>onChange</type>
         <ui_type>0</ui_type>

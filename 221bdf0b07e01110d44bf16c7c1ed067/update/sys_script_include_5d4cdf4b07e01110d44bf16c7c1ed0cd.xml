@@ -10,13 +10,13 @@
         <script><![CDATA[var RPDraftUtills = Class.create();
 RPDraftUtills.prototype = {
 	initialize: function () {},
-	
+
 	/**
-	* Enrolls an item/record producer to the draft saving functionality.
-	* @param {string} itemID - sys_id of the item/rp.
-	* @return {function} createOption - adds a custom variable to the item/rp.
-	*/
-	enrollItem: function (itemID) {
+	 * Enrolls an item/record producer to the draft saving functionality.
+	 * @param {string} itemID - sys_id of the item/rp.
+	 * @return {function} createOption - adds a custom variable to the item/rp.
+	 */
+	enrollItem: function (itemID, mode) {
 		if (!itemID) return;
 
 		var option = this.getOption(itemID);
@@ -26,13 +26,19 @@ RPDraftUtills.prototype = {
 			return option.update();
 		}
 
-		return this.createOption(itemID);
+		if (!mode) {
+			return this.createOption(itemID);
+		}
+
+		if (mode === 'item_mode') {
+			return this.createOption(itemID, mode);
+		}
 	},
 
 	/**
-	* Unenrolls an item/record producer from the draft saving functionality.
-	* @param {string} itemID - sys_id of the item/rp.
-	*/
+	 * Unenrolls an item/record producer from the draft saving functionality.
+	 * @param {string} itemID - sys_id of the item/rp.
+	 */
 	unenrollItem: function (itemID) {
 		if (!itemID) return;
 
@@ -44,11 +50,11 @@ RPDraftUtills.prototype = {
 	},
 
 	/**
-	* Checks if the item/rp associated with a record ot RITM is enrolled to the draft save before removing drafts, if any existing drafts should be removed, and if any of those actually exist.
-	* @param {string} ritmID - sys_id of the a RITM, optional.
-	* @param {string} item - sys_id of the item/rp.
-	* @return {boolean} common true/false on all the above checks as a unit.
-	*/
+	 * Checks if the item/rp associated with a record ot RITM is enrolled to the draft save before removing drafts, if any existing drafts should be removed, and if any of those actually exist.
+	 * @param {string} ritmID - sys_id of the a RITM, optional.
+	 * @param {string} item - sys_id of the item/rp.
+	 * @return {boolean} common true/false on all the above checks as a unit.
+	 */
 	checkRITMEnrollment: function (ritmID, item) {
 		if (!ritmID && !item) return;
 
@@ -62,7 +68,7 @@ RPDraftUtills.prototype = {
 		var aChecks = [];
 
 		var enrollment = new GlideRecord('x_463716_rp_draft_rp_enrollment_rule');
-		enrollment.addEncodedQuery('item=' + itemID);
+		enrollment.addEncodedQuery('item=' + itemID + '^ORitemsLIKE' + itemID);
 		enrollment.query();
 
 		aChecks.push(enrollment.next());
@@ -81,43 +87,50 @@ RPDraftUtills.prototype = {
 	},
 
 	/**
-	* Inserts a custom variable to the item/rp that's being enrolled
-	* @param {string} itemID - sys_id of the item/rp
-	*/
-	createOption: function (itemID) {
+	 * Inserts a custom variable to the item/rp that's being enrolled
+	 * @param {string} itemID - sys_id of the item/rp
+	 */
+	createOption: function (itemID, mode) {
+
+		var name = mode && mode === 'item_mode' ? 'rpds_' + itemID : 'rp_draft_save';
+		var qtext = name;
+
 		var option = new GlideRecord('item_option_new');
 		option.initialize();
 
 		option.setValue('type', 14);
-		option.setValue('sp_widget', this.getWidget());
+		option.setValue('sp_widget', this.getWidget(mode));
 		option.setValue('cat_item', itemID);
 		option.setValue('order', 5000);
-		option.setValue('question_text', 'RP Draft Save');
-		option.setValue('name', 'rp_draft_save');
+		option.setValue('question_text', qtext);
+		option.setValue('name', name);
 
 		option.insert();
 	},
 
 	/**
-	* Retrieves the RP Draft custom variable from an item/rp.
-	* @param {string} itemID - sys_id of the item/rp
-	* @return {GlideRecord} option - gr of the custom variable, if one is found, null otherwise.
-	*/
+	 * Retrieves the RP Draft custom variable from an item/rp.
+	 * @param {string} itemID - sys_id of the item/rp
+	 * @return {GlideRecord} option - gr of the custom variable, if one is found, null otherwise.
+	 */
 	getOption: function (itemID) {
 		var option = new GlideRecord('item_option_new');
-		option.addEncodedQuery('cat_item=' + itemID + '^type=14^sp_widget.id=x_463716_rp_draft_save');
+		option.addEncodedQuery('cat_item=' + itemID + '^type=14^sp_widget.id=x_463716_rp_draft_save_ogi^ORsp_widget.id=x_463716_rp_draft_save');
 		option.query();
 
 		return option.next() ? option : null;
 	},
 
 	/**
-	* Retrieves sys_id of the widget used by the custom RP Draft variable.
-	* @return {string} widget.sys_id - sys_id of the widget, if one was found, null otherwise.
-	*/
-	getWidget: function () {
+	 * Retrieves sys_id of the widget used by the custom RP Draft variable.
+	 * @return {string} widget.sys_id - sys_id of the widget, if one was found, null otherwise.
+	 */
+	getWidget: function (mode) {
+
+		var query = mode && mode === 'item_mode' ? 'id=x_463716_rp_draft_save_ogi' : 'id=x_463716_rp_draft_save'
+
 		var widget = new GlideRecord('sp_widget');
-		widget.addEncodedQuery('id=x_463716_rp_draft_save');
+		widget.addEncodedQuery(query);
 		widget.query();
 
 		if (widget.next()) return widget.getValue('sys_id');
@@ -126,12 +139,12 @@ RPDraftUtills.prototype = {
 	},
 
 	/**
-	* Retrieves a draft record for a certain item/rp.
-	* @param {string} itemID - sys_id of the item/rp, optional.
-	* @param {string} userID - sys_id of the current user, optional.
-	* @param {string} draftID - sys_id of a draft record, optional.
-	* @return {GlideRecord} draft - gr of the draft record, if one is found, null otherwise.
-	*/
+	 * Retrieves a draft record for a certain item/rp.
+	 * @param {string} itemID - sys_id of the item/rp, optional.
+	 * @param {string} userID - sys_id of the current user, optional.
+	 * @param {string} draftID - sys_id of a draft record, optional.
+	 * @return {GlideRecord} draft - gr of the draft record, if one is found, null otherwise.
+	 */
 	getDraft: function (itemID, userID, draftID) {
 		if ((!itemID || !userID) && !draftID) return;
 
@@ -148,11 +161,11 @@ RPDraftUtills.prototype = {
 	},
 
 	/**
-	* Creates a draft record, unique for the provided item/user pair.
-	* @param {string} itemID - sys_id of the item/rp.
-	* @param {string} userID - sys_id of the current user.
-	* @return {function} getDraft - retrieves the draft upon creation.
-	*/
+	 * Creates a draft record, unique for the provided item/user pair.
+	 * @param {string} itemID - sys_id of the item/rp.
+	 * @param {string} userID - sys_id of the current user.
+	 * @return {function} getDraft - retrieves the draft upon creation.
+	 */
 	createDraft: function (itemID, userID) {
 		var item = new GlideRecord('sc_cat_item');
 		if (!item.get(itemID)) return;
@@ -168,13 +181,13 @@ RPDraftUtills.prototype = {
 	},
 
 	/**
-	* Removes a draft record upon item/rp submission.
-	* @param {string} itemID - sys_id of the item/rp.
-	* @param {string} userID - sys_id of the current user.
-	* @param {string} table - table name, optional.
-	* @return {string} draft.sys_id - sys_id of the removed draft record.
-	*/
-	deleteDraft: function (itemID, userID, table) {
+	 * Removes a draft record upon item/rp submission.
+	 * @param {string} itemID - sys_id of the item/rp.
+	 * @param {string} userID - sys_id of the current user.
+	 * @param {string} table - table name, optional.
+	 * @return {string} draft.sys_id - sys_id of the removed draft record.
+	 */
+	deleteDraft: function (itemID, userID, table, orderGuideID) {
 		if (table) {
 			var item = new GlideRecord('sc_cat_item_producer');
 			item.addEncodedQuery('table_name=' + table + '^active=true');
@@ -191,37 +204,86 @@ RPDraftUtills.prototype = {
 			}
 		}
 
+		var query = 'user=' + userID + '^item=' + itemID;
+		if(orderGuideID) {
+			query += '^ORitem=' + orderGuideID;
+		}
+
 		var draft = new GlideRecord('x_463716_rp_draft_rp_draft');
-		draft.addEncodedQuery('user=' + userID + '^item=' + itemID);
+		draft.addEncodedQuery(query);
 		draft.query();
 
-		if (draft.next()) {
-			return draft.deleteRecord();
+		while(draft.next()) {
+			draft.deleteRecord();
 		}
 	},
 
+	deleteUponSubmit: function(itemID) {
+		if(!itemID) return;
+
+		var enrollment = new GlideRecord('x_463716_rp_draft_rp_enrollment_rule');
+		enrollment.addEncodedQuery('item=' + itemID + '^ORitemsLIKE' + itemID);
+		enrollment.query();
+
+		return enrollment.next() && enrollment.getValue('delete_draft_on_submit') == true ? true : false;
+	},
+
+	getOGItems: function (orderGuideID) {
+		if (!orderGuideID) return;
+
+		var ruleBase = new GlideRecord('sc_cat_item_guide_items');
+		ruleBase.addEncodedQuery('guide=' + orderGuideID);
+		ruleBase.query();
+
+		var itemIDs = [];
+
+		while (ruleBase.next()) {
+			if (this.getVariables(ruleBase.getValue('item'))[0]) {
+				itemIDs.push(ruleBase.getValue('item'));
+			}
+		}
+
+		return itemIDs.join(',');
+	},
+
 	/**
-	* Retrieves a collection of sys_id's of all variables associated with an item/rp, including the variable set ones.
-	* @param {string} itemID - sys_id of the item/rp.
-	* @param {string} mode - optional, determines the type of return of the function - ref. qualifier string or array of sys_id's.
-	* @return {string} encoded query - 'sys_idIN' + a comma separated list of variable sys_id's.
-	* @return {array} aVariables - an array of variable sys_id's.
-	*/
-	getVariables: function (itemID, mode) {
-		if (!itemID) return;
+	 * Retrieves a collection of sys_id's of all variables associated with an item/rp, including the variable set ones.
+	 * @param {string} itemID - sys_id of the item/rp.
+	 * @param {string} mode - optional, determines the type of return of the function - ref. qualifier string or array of sys_id's.
+	 * @param {boolean} requestedFor - *CURRENTLY INACTIVE* optional, if provided limits the query to only variables referencing 'sys_user' table.
+	 * @return {string} encoded query - 'sys_idIN' + a comma separated list of variable sys_id's.
+	 * @return {array} aVariables - an array of variable sys_id's.
+	 */
+	getVariables: function (itemID, mode, itemList, requestedFor) {
+		if (!itemID && !itemList) return;
 
 		var aVariableSetIDs = [];
 		var aVariables = [];
+		var m2mQuery = itemID ? 'sc_cat_item=' + itemID : 'sc_cat_itemIN' + itemList;
+		if(itemID && itemList) {
+			m2mQuery = 'sc_cat_item=' + itemID + '^ORsc_cat_itemIN' + itemList
+		};
 
 		var m2mRelation = new GlideRecord('io_set_item');
-		m2mRelation.addEncodedQuery('sc_cat_item=' + itemID);
+		m2mRelation.addEncodedQuery(m2mQuery);
 		m2mRelation.query();
 
 		while (m2mRelation.next()) {
-			aVariableSetIDs.push(m2mRelation.getValue('variable_set'));
+			if (m2mRelation.variable_set.type.toString() === 'one_to_one')
+				aVariableSetIDs.push(m2mRelation.getValue('variable_set'));
+
+			if (m2mRelation.variable_set.type.toString() === 'one_to_many')
+				if(mode === 'sys_id') aVariables.push(m2mRelation.getValue('sys_id'))
+				if(!mode) aVariables.push({
+					name: m2mRelation.variable_set.internal_name.toString(),
+					id: m2mRelation.getValue('variable_set')
+				});
 		}
 
-		var sVariableQuery = 'active=true^name!=rp_draft_save^cat_item=' + itemID;
+		var sVariableQuery = itemID ? 'active=true^name!=rp_draft_save^nameNOT LIKErpds^cat_item=' + itemID : 'active=true^name!=rp_draft_save^nameNOT LIKErpds^cat_item=' + itemList;
+		if(itemID && itemList) {
+			sVariableQuery = 'active=true^name!=rp_draft_save^nameNOT LIKErpds^cat_item=' + itemID + '^ORcat_itemIN' + itemList;
+		};
 		sVariableQuery += aVariableSetIDs ? '^ORvariable_set.sys_idIN' + aVariableSetIDs.join(',') : '';
 
 		var variable = new GlideRecord('item_option_new');
@@ -240,36 +302,88 @@ RPDraftUtills.prototype = {
 	},
 
 	/**
-	* Retrieves a collection of sys_id's of variables that should be excluded from the RP Draft functionlity.
-	* @param {string} itemID - sys_id of the item/rp.
-	* @return {array} excluded_variables - an array of variable sys_id's.
-	*/
+	 * Retrieves a collection of sys_id's of variables that should be excluded from the RP Draft functionlity.
+	 * @param {string} itemID - sys_id of the item/rp.
+	 * @return {array} excluded_variables - an array of variable sys_id's.
+	 */
 	getExcluded: function (itemID) {
 		if (!itemID) return;
 
 		var enrollmentRule = new GlideRecord('x_463716_rp_draft_rp_enrollment_rule');
-		enrollmentRule.addEncodedQuery('item=' + itemID);
+		enrollmentRule.addEncodedQuery('item=' + itemID + '^ORitemsLIKE' + itemID);
 		enrollmentRule.query();
 
 		return enrollmentRule.next() && enrollmentRule.getValue('excluded_variables') ?
 			enrollmentRule.getValue('excluded_variables').split(',') : [];
 	},
-	
+
 	/**
-	* Utility function, intended to replace gs.sleep() in scoped environment.
-	* @param {number} time - the intended delay in miliseconds.
-	*/
-	wait: function(time) {
-		var t1 = new GlideDateTime().getNumericValue();	 
-		var t2 = new GlideDateTime().getNumericValue();	 
+	 * Retrieves the custom pages, if those are defined in the enrollment rule.
+	 * @param {string} itemID - sys_id of the item/rp.
+	 * @return {object} {page: page_name, redirection: page_name} - an object with page names.
+	 */
+	getPages: function (itemID) {
+		if (!itemID) return;
 
-		var duration = t2 - t1;	 
+		var enrollmentRule = new GlideRecord('x_463716_rp_draft_rp_enrollment_rule');
+		enrollmentRule.addEncodedQuery('item=' + itemID + '^ORitemsLIKE' + itemID);
+		enrollmentRule.query();
 
-		while(duration < time) { 
+		return enrollmentRule.next() ? {
+			page: enrollmentRule.getDisplayValue('item_page'),
+			redirection: enrollmentRule.getDisplayValue('redirection_page')
+		} : '';
+	},
 
-		t2 = new GlideDateTime().getNumericValue();	 
-		duration = t2 - t1;
-		}	 
+	/**
+	 * Checks if an item is already enrolled.
+	 * @param {string} itemID - sys_id of the item/rp.
+	 * @return {boolean} isEnrolled - true or false.
+	 */
+	isEnrolled: function (itemID, ruleID) {
+		if (!itemID) return;
+
+		var query = 'item=' + itemID + '^ORitemsLIKE' + itemID;
+		query += ruleID ? '^sys_id!=' + ruleID : '';
+
+		var enrollmentRule = new GlideRecord('x_463716_rp_draft_rp_enrollment_rule');
+		enrollmentRule.addEncodedQuery(query);
+		enrollmentRule.query();
+
+		return enrollmentRule.next();
+	},
+
+	/**
+	 * Checks if an item is an order guide.
+	 * @param {string} itemID - sys_id of the item/rp/og.
+	 * @return {boolean} isOrderGuide - true or false.
+	 */
+	isOrderGuide: function (itemID) {
+		var item = new GlideRecord('sc_cat_item');
+		item.get(itemID);
+
+		var table = new GlideRecord('sys_db_object');
+		table.addEncodedQuery('name=' + item.getValue('sys_class_name'));
+		table.query();
+
+		return table.next() && (table.getValue('name') == 'sc_cat_item_guide' || table.getValue('super_class') == 'sc_cat_item_guide');
+	},
+
+	/**
+	 * Utility function, intended to replace gs.sleep() in scoped environment.
+	 * @param {number} time - the intended delay in miliseconds.
+	 */
+	wait: function (time) {
+		var t1 = new GlideDateTime().getNumericValue();
+		var t2 = new GlideDateTime().getNumericValue();
+
+		var duration = t2 - t1;
+
+		while (duration < time) {
+
+			t2 = new GlideDateTime().getNumericValue();
+			duration = t2 - t1;
+		}
 	},
 
 	type: 'RPDraftUtills'
@@ -278,13 +392,10 @@ RPDraftUtills.prototype = {
         <sys_created_by>zdravko.verguilov</sys_created_by>
         <sys_created_on>2022-07-12 12:10:19</sys_created_on>
         <sys_id>5d4cdf4b07e01110d44bf16c7c1ed0cd</sys_id>
-        <sys_mod_count>82</sys_mod_count>
         <sys_name>RPDraftUtills</sys_name>
         <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
         <sys_policy/>
         <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
         <sys_update_name>sys_script_include_5d4cdf4b07e01110d44bf16c7c1ed0cd</sys_update_name>
-        <sys_updated_by>zdravko.verguilov</sys_updated_by>
-        <sys_updated_on>2022-08-04 12:09:32</sys_updated_on>
     </sys_script_include>
 </record_update>

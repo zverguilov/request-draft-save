@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="item_option_new" version="2" view="rpd">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>question_text</element>
+            <list_id display_value="item_option_new" element="NULL" name="item_option_new" parent="NULL" relationship="NULL" sys_domain="global" view="48eb381907721110d44bf16c7c1ed036">6c2c3c5507b21110d44bf16c7c1ed010</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>zdravko.verguilov</sys_created_by>
+            <sys_created_on>2022-10-26 10:22:02</sys_created_on>
+            <sys_id>682c3c5507b21110d44bf16c7c1ed011</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>zdravko.verguilov</sys_updated_by>
+            <sys_updated_on>2022-10-26 10:22:02</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>cat_item</element>
+            <list_id display_value="item_option_new" element="NULL" name="item_option_new" parent="NULL" relationship="NULL" sys_domain="global" view="48eb381907721110d44bf16c7c1ed036">6c2c3c5507b21110d44bf16c7c1ed010</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>zdravko.verguilov</sys_created_by>
+            <sys_created_on>2022-10-26 10:22:02</sys_created_on>
+            <sys_id>e82c3c5507b21110d44bf16c7c1ed011</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>zdravko.verguilov</sys_updated_by>
+            <sys_updated_on>2022-10-26 10:22:02</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>variable_set.name</element>
+            <list_id display_value="item_option_new" element="NULL" name="item_option_new" parent="NULL" relationship="NULL" sys_domain="global" view="48eb381907721110d44bf16c7c1ed036">6c2c3c5507b21110d44bf16c7c1ed010</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>zdravko.verguilov</sys_created_by>
+            <sys_created_on>2022-10-26 10:22:02</sys_created_on>
+            <sys_id>6c2c3c5507b21110d44bf16c7c1ed011</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>zdravko.verguilov</sys_updated_by>
+            <sys_updated_on>2022-10-26 10:22:02</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>item_option_new</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>zdravko.verguilov</sys_created_by>
+            <sys_created_on>2022-10-26 10:22:02</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6c2c3c5507b21110d44bf16c7c1ed010</sys_id>
+            <sys_name>item_option_new</sys_name>
+            <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+            <sys_update_name>sys_ui_list_item_option_new_rpd</sys_update_name>
+            <sys_user/>
+            <view display_value="RPD" name="rpd">48eb381907721110d44bf16c7c1ed036</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

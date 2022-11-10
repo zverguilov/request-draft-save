@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="DELETE">
+        <cleared>true</cleared>
+        <disabled>ignore</disabled>
+        <field>excluded_variables</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-29 11:35:49</sys_created_on>
+        <sys_id>6e773a6c07091510d44bf16c7c1ed0d0</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>excluded_variables</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>sys_ui_policy_action_6e773a6c07091510d44bf16c7c1ed0d0</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-07-29 11:36:46</sys_updated_on>
+        <table>x_463716_rp_draft_rp_enrollment_rule</table>
+        <ui_policy display_value="Hide Variables">1347766c07091510d44bf16c7c1ed0d8</ui_policy>
+        <visible>false</visible>
+    </sys_ui_policy_action>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</application>
+        <file_path/>
+        <instance_id>1d64aec2db06f3082f68c597059619f0</instance_id>
+        <instance_name>dev87737</instance_name>
+        <name>sys_ui_policy_action_6e773a6c07091510d44bf16c7c1ed0d0</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>true</cleared>
+        <disabled>ignore</disabled>
+        <field>excluded_variables</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-07-29 11:35:49</sys_created_on>
+        <sys_id>6e773a6c07091510d44bf16c7c1ed0d0</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>excluded_variables</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>sys_ui_policy_action_6e773a6c07091510d44bf16c7c1ed0d0</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-07-29 11:36:46</sys_updated_on>
+        <table>x_463716_rp_draft_rp_enrollment_rule</table>
+        <ui_policy display_value="Hide Variables">1347766c07091510d44bf16c7c1ed0d8</ui_policy>
+        <visible>false</visible>
+    </sys_ui_policy_action>
+</record_update>]]></payload>
+        <payload_hash>-1853599429</payload_hash>
+        <record_name>excluded_variables</record_name>
+        <reverted_from/>
+        <source>6cc05f7407b51110d44bf16c7c1ed0bb</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-09-05 14:52:26</sys_created_on>
+        <sys_id>a4f097b407b51110d44bf16c7c1ed023</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1830e236f310000001</sys_recorded_at>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-09-05 14:52:26</sys_updated_on>
+        <type>UI Policy Action</type>
+        <update_guid>e0f097b447b51110fff0867c729a3323</update_guid>
+        <update_guid_history>e0f097b447b51110fff0867c729a3323:0,3fb73e6cbb091510b0712b50713b6cf5:-1621715053,3d87f6e4b30915101f7bb8470d48e71c:-1665619324</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-10-27 08:23:34</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy_action">sys_ui_policy_action</sys_db_object>
+        <sys_id>2229dd182bb640a4977b32fd30ecbd59</sys_id>
+        <sys_metadata>6e773a6c07091510d44bf16c7c1ed0d0</sys_metadata>
+        <sys_name>excluded_variables</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_scope_delete display_value="">501e30fe705f4dd6a4ecf3b00ec1ad64</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_action_6e773a6c07091510d44bf16c7c1ed0d0</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_action_6e773a6c07091510d44bf16c7c1ed0d0">a4f097b407b51110d44bf16c7c1ed023</sys_update_version>
+    </sys_metadata_delete>
+</record_update>

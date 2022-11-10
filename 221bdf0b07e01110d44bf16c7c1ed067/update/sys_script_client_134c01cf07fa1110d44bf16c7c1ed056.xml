@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Add Item Page Message</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+	g_form.showFieldMsg('item_page', 'Optional, for Order Guides only, in case the default order guide page is changed. Defaults to "sc_cat_item_guide" if no value is provided.');
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-10-31 22:02:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>134c01cf07fa1110d44bf16c7c1ed056</sys_id>
+        <sys_name>Add Item Page Message</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>sys_script_client_134c01cf07fa1110d44bf16c7c1ed056</sys_update_name>
+        <table>x_463716_rp_draft_rp_enrollment_rule</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

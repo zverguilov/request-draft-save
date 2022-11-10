@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_policy">
+    <sys_ui_policy action="DELETE">
+        <active>false</active>
+        <conditions table="x_463716_rp_draft_rp_enrollment_rule">123TEXTQUERY321=true^EQ<item endquery="false" field="123TEXTQUERY321" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description/>
+        <global>true</global>
+        <inherit>false</inherit>
+        <isolate_script>true</isolate_script>
+        <model_id/>
+        <model_table/>
+        <on_load>false</on_load>
+        <order>100</order>
+        <reverse_if_false>true</reverse_if_false>
+        <run_scripts>true</run_scripts>
+        <script_false><![CDATA[function onCondition() {
+	g_form.setMandatory('requested_for_variable', false);
+	g_form.setVisible('requested_for_variable', false);
+
+}]]></script_false>
+        <script_true><![CDATA[function onCondition() {
+	var ga = new GlideAjax('RPDraftUtilsClient');
+	ga.addParam('sysparm_name', 'checkRequestedFor');
+	ga.addParam('sysparm_item', g_form.getValue('item'));
+	ga.getXMLAnswer(ajaxResponse);
+	
+	function ajaxResponse(response) {
+		if(response == 'false') {
+			g_form.setVisible('requested_for_variable', true);
+			g_form.setMandatory('requested_for_variable', true);
+			g_form.showFieldMsg('requested_for_variable', 'No active variables of type "Requested for" were found on this item. Please select one manually. You\'ll only see variables that reference the User table.');
+		} else {
+			g_form.setVisible('requested_for_variable', false);
+		}
+	}
+}]]></script_true>
+        <set_values/>
+        <short_description>Hide Requested For</short_description>
+        <sys_class_name>sys_ui_policy</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-08-08 08:08:54</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>581861370705dd10d44bf16c7c1ed050</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>Hide Requested For</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_update_name>sys_ui_policy_581861370705dd10d44bf16c7c1ed050</sys_update_name>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-08-10 08:32:11</sys_updated_on>
+        <table>x_463716_rp_draft_rp_enrollment_rule</table>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_ui_policy>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</application>
+        <file_path/>
+        <instance_id>1d64aec2db06f3082f68c597059619f0</instance_id>
+        <instance_name>dev87737</instance_name>
+        <name>sys_ui_policy_581861370705dd10d44bf16c7c1ed050</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_policy"&gt;
+    &lt;sys_ui_policy action="INSERT_OR_UPDATE"&gt;
+        &lt;active&gt;false&lt;/active&gt;
+        &lt;conditions table="x_463716_rp_draft_rp_enrollment_rule"&gt;123TEXTQUERY321=true^EQ&lt;item endquery="false" field="123TEXTQUERY321" goto="false" newquery="false" operator="=" or="false" value="true"/&gt;
+            &lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;
+        &lt;/conditions&gt;
+        &lt;description/&gt;
+        &lt;global&gt;true&lt;/global&gt;
+        &lt;inherit&gt;false&lt;/inherit&gt;
+        &lt;isolate_script&gt;true&lt;/isolate_script&gt;
+        &lt;model_id/&gt;
+        &lt;model_table/&gt;
+        &lt;on_load&gt;false&lt;/on_load&gt;
+        &lt;order&gt;100&lt;/order&gt;
+        &lt;reverse_if_false&gt;true&lt;/reverse_if_false&gt;
+        &lt;run_scripts&gt;true&lt;/run_scripts&gt;
+        &lt;script_false&gt;&lt;![CDATA[function onCondition() {
+	g_form.setMandatory('requested_for_variable', false);
+	g_form.setVisible('requested_for_variable', false);
+
+}]]&gt;&lt;/script_false&gt;
+        &lt;script_true&gt;&lt;![CDATA[function onCondition() {
+	var ga = new GlideAjax('RPDraftUtilsClient');
+	ga.addParam('sysparm_name', 'checkRequestedFor');
+	ga.addParam('sysparm_item', g_form.getValue('item'));
+	ga.getXMLAnswer(ajaxResponse);
+	
+	function ajaxResponse(response) {
+		if(response == 'false') {
+			g_form.setVisible('requested_for_variable', true);
+			g_form.setMandatory('requested_for_variable', true);
+			g_form.showFieldMsg('requested_for_variable', 'No active variables of type "Requested for" were found on this item. Please select one manually. You\'ll only see variables that reference the User table.');
+		} else {
+			g_form.setVisible('requested_for_variable', false);
+		}
+	}
+}]]&gt;&lt;/script_true&gt;
+        &lt;set_values/&gt;
+        &lt;short_description&gt;Hide Requested For&lt;/short_description&gt;
+        &lt;sys_class_name&gt;sys_ui_policy&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;zdravko.verguilov&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2022-08-08 08:08:54&lt;/sys_created_on&gt;
+        &lt;sys_domain&gt;global&lt;/sys_domain&gt;
+        &lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;
+        &lt;sys_id&gt;581861370705dd10d44bf16c7c1ed050&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;15&lt;/sys_mod_count&gt;
+        &lt;sys_name&gt;Hide Requested For&lt;/sys_name&gt;
+        &lt;sys_overrides/&gt;
+        &lt;sys_package display_value="RP Draft" source="x_463716_rp_draft"&gt;221bdf0b07e01110d44bf16c7c1ed067&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_scope display_value="RP Draft"&gt;221bdf0b07e01110d44bf16c7c1ed067&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;sys_ui_policy_581861370705dd10d44bf16c7c1ed050&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;zdravko.verguilov&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2022-08-10 08:32:11&lt;/sys_updated_on&gt;
+        &lt;table&gt;x_463716_rp_draft_rp_enrollment_rule&lt;/table&gt;
+        &lt;ui_type&gt;0&lt;/ui_type&gt;
+        &lt;view/&gt;
+    &lt;/sys_ui_policy&gt;
+&lt;/record_update&gt;</payload>
+        <payload_hash>-904698596</payload_hash>
+        <record_name>Hide Requested For</record_name>
+        <reverted_from/>
+        <source>6cc05f7407b51110d44bf16c7c1ed0bb</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-09-05 14:52:26</sys_created_on>
+        <sys_id>10f097b407b51110d44bf16c7c1ed018</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1830e236e100000001</sys_recorded_at>
+        <sys_updated_by>zdravko.verguilov</sys_updated_by>
+        <sys_updated_on>2022-09-05 14:52:26</sys_updated_on>
+        <type>UI Policy</type>
+        <update_guid>5cf097b459b511100871115554305f17</update_guid>
+        <update_guid_history>5cf097b459b511100871115554305f17:0,7c90cc64bdd551503adbf2cdd4572429:75012338,2b1cb5f78b45dd102f0b235ae0652d5b:1121824935,75fb3db75e45dd109088f7b1da5a8e0d:1131995941,de6de9bb6305dd108af99f763baf62a3:-80781941,3a3d29bba805dd10a924156817163a97:908722283,152ded7bcd05dd10583641b9a73c4678:1393330023,a5dce97b1305dd10e347872ee5f687c8:235793558,378c2d7b7e05dd10e26d430d2c934ef0:-1259575194,eb6c217bcf05dd100862121c7bad270a:1501729086,484c657b6505dd10782e7dfb53008281:-523270657,6b2ce57b3e05dd10583a3e212502f370:-5436275,510ce17bbb05dd10f79f1920e5f4a553:-1523983521,1edb6d3bf005dd103f34864236bdad1c:122408089,748aad373805dd10793d9870637fb4a1:82862798,6478a537ea05dd10725af35342b11977:103105176,d8186137f205dd108362766e6dce0e52:-1256828386</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>zdravko.verguilov</sys_created_by>
+        <sys_created_on>2022-10-26 08:54:53</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy">sys_ui_policy</sys_db_object>
+        <sys_id>01e8ba6cca834493925c050a32514099</sys_id>
+        <sys_metadata>581861370705dd10d44bf16c7c1ed050</sys_metadata>
+        <sys_name>Hide Requested For</sys_name>
+        <sys_package display_value="RP Draft" source="x_463716_rp_draft">221bdf0b07e01110d44bf16c7c1ed067</sys_package>
+        <sys_parent display_value="RP Enrollment Rule">45db5b4b07e01110d44bf16c7c1ed0ca</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="RP Draft">221bdf0b07e01110d44bf16c7c1ed067</sys_scope>
+        <sys_scope_delete display_value="">501e30fe705f4dd6a4ecf3b00ec1ad64</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_581861370705dd10d44bf16c7c1ed050</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_581861370705dd10d44bf16c7c1ed050">10f097b407b51110d44bf16c7c1ed018</sys_update_version>
+    </sys_metadata_delete>
+</record_update>
